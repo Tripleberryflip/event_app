@@ -1,0 +1,21 @@
+<h1>Listing score_templates</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @score_templates.each do |score_template| %>
+  <tr>
+    <td><%= link_to 'Show', score_template %></td>
+    <td><%= link_to 'Edit', edit_score_template_path(score_template) %></td>
+    <td><%= link_to 'Destroy', score_template, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Score template', new_score_template_path %>

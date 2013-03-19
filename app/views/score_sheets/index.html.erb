@@ -1,0 +1,23 @@
+<h1>Listing score_sheets</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @score_sheets.each do |score_sheet| %>
+  <tr>
+    <td><%= score_sheet.name %></td>
+    <td><%= link_to 'Show', score_sheet %></td>
+    <td><%= link_to 'Edit', edit_score_sheet_path(score_sheet) %></td>
+    <td><%= link_to 'Destroy', score_sheet, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New ScoreSheet', new_score_sheet_path %>
