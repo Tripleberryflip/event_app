@@ -1,4 +1,12 @@
 EventApp::Application.routes.draw do
+  root to: 'navigation_pages#home'
+
+  match '/help',    to: 'navigation_pages#help'
+  
+  match '/signupcoordinator',  to: 'event_coordinators#new'
+  
+  match '/signupjudge',  to: 'judges#new'
+
   resources :questions
 
   resources :score_templates

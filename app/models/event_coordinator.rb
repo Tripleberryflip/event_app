@@ -14,5 +14,6 @@ class EventCoordinator < ActiveRecord::Base
 
   # Association(s)
   belongs_to :event, :dependent => :delete
+  validates :name, presence: true
 end
 
