@@ -6,6 +6,12 @@ EventApp::Application.routes.draw do
   match '/signupcoordinator',  to: 'event_coordinators#new'
   
   match '/signupjudge',  to: 'judges#new'
+  
+  match '/coordinatorsignin',  to: 'coordinatorsessions#new'
+  match '/coordinatorsignout', to: 'coordinatorsessions#destroy', via: :delete
+  
+  match '/judgesignin',  to: 'judgesessions#new'
+  match '/judgesignout', to: 'judgesessions#destroy', via: :delete
 
   resources :questions
 
@@ -20,6 +26,10 @@ EventApp::Application.routes.draw do
   resources :event_coordinators
 
   resources :events
+  
+  resources :coordinatorsessions, only: [:new, :create, :destroy]
+  
+  resources :judgesessions, only: [:new, :create, :destroy]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
