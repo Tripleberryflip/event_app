@@ -10,10 +10,14 @@
 #
 
 class EventCoordinator < ActiveRecord::Base
-  attr_accessible :name, :event_id
+  attr_accessible :name, :event_id, :password, :password_confirmation
+  has_secure_password
 
   # Association(s)
   belongs_to :event, :dependent => :delete
   validates :name, presence: true
+  
+  validates :password, presence: true, length: { minimum: 6 }
+  validates :password_confirmation, presence: true
 end
 

@@ -11,7 +11,11 @@
 #
 
 class Judge < ActiveRecord::Base
-  attr_accessible :name, :event_id, :score_sheet_id
+  attr_accessible :name, :event_id, :score_sheet_id, :password, :password_confirmation, :email
+  
+  has_secure_password
+  
+  before_save { |judge| judge.email = email.downcase }
 
   # Association(s)
   has_and_belongs_to_many :events#, :through => :events_judges
@@ -19,6 +23,12 @@ class Judge < ActiveRecord::Base
 
   has_many :score_sheets
   validates :name, presence: true
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
+                      uniqueness: { case_sensitive: false }
+  validates :password, presence: true, length: { minimum: 6 }
+  validates :password_confirmation, presence: true
+                      
 end
 
 
