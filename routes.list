@@ -1,0 +1,63 @@
+                  root        /                                      navigation_pages#home
+                  help        /help(.:format)                        navigation_pages#help
+     signupcoordinator        /signupcoordinator(.:format)           event_coordinators#new
+           signupjudge        /signupjudge(.:format)                 judges#new
+     coordinatorsignin        /coordinatorsignin(.:format)           coordinatorsessions#new
+    coordinatorsignout DELETE /coordinatorsignout(.:format)          coordinatorsessions#destroy
+           judgesignin        /judgesignin(.:format)                 judgesessions#new
+          judgesignout DELETE /judgesignout(.:format)                judgesessions#destroy
+             questions GET    /questions(.:format)                   questions#index
+                       POST   /questions(.:format)                   questions#create
+          new_question GET    /questions/new(.:format)               questions#new
+         edit_question GET    /questions/:id/edit(.:format)          questions#edit
+              question GET    /questions/:id(.:format)               questions#show
+                       PUT    /questions/:id(.:format)               questions#update
+                       DELETE /questions/:id(.:format)               questions#destroy
+       score_templates GET    /score_templates(.:format)             score_templates#index
+                       POST   /score_templates(.:format)             score_templates#create
+    new_score_template GET    /score_templates/new(.:format)         score_templates#new
+   edit_score_template GET    /score_templates/:id/edit(.:format)    score_templates#edit
+        score_template GET    /score_templates/:id(.:format)         score_templates#show
+                       PUT    /score_templates/:id(.:format)         score_templates#update
+                       DELETE /score_templates/:id(.:format)         score_templates#destroy
+           competitors GET    /competitors(.:format)                 competitors#index
+                       POST   /competitors(.:format)                 competitors#create
+        new_competitor GET    /competitors/new(.:format)             competitors#new
+       edit_competitor GET    /competitors/:id/edit(.:format)        competitors#edit
+            competitor GET    /competitors/:id(.:format)             competitors#show
+                       PUT    /competitors/:id(.:format)             competitors#update
+                       DELETE /competitors/:id(.:format)             competitors#destroy
+          score_sheets GET    /score_sheets(.:format)                score_sheets#index
+                       POST   /score_sheets(.:format)                score_sheets#create
+       new_score_sheet GET    /score_sheets/new(.:format)            score_sheets#new
+      edit_score_sheet GET    /score_sheets/:id/edit(.:format)       score_sheets#edit
+           score_sheet GET    /score_sheets/:id(.:format)            score_sheets#show
+                       PUT    /score_sheets/:id(.:format)            score_sheets#update
+                       DELETE /score_sheets/:id(.:format)            score_sheets#destroy
+                judges GET    /judges(.:format)                      judges#index
+                       POST   /judges(.:format)                      judges#create
+             new_judge GET    /judges/new(.:format)                  judges#new
+            edit_judge GET    /judges/:id/edit(.:format)             judges#edit
+                 judge GET    /judges/:id(.:format)                  judges#show
+                       PUT    /judges/:id(.:format)                  judges#update
+                       DELETE /judges/:id(.:format)                  judges#destroy
+    event_coordinators GET    /event_coordinators(.:format)          event_coordinators#index
+                       POST   /event_coordinators(.:format)          event_coordinators#create
+ new_event_coordinator GET    /event_coordinators/new(.:format)      event_coordinators#new
+edit_event_coordinator GET    /event_coordinators/:id/edit(.:format) event_coordinators#edit
+     event_coordinator GET    /event_coordinators/:id(.:format)      event_coordinators#show
+                       PUT    /event_coordinators/:id(.:format)      event_coordinators#update
+                       DELETE /event_coordinators/:id(.:format)      event_coordinators#destroy
+                events GET    /events(.:format)                      events#index
+                       POST   /events(.:format)                      events#create
+             new_event GET    /events/new(.:format)                  events#new
+            edit_event GET    /events/:id/edit(.:format)             events#edit
+                 event GET    /events/:id(.:format)                  events#show
+                       PUT    /events/:id(.:format)                  events#update
+                       DELETE /events/:id(.:format)                  events#destroy
+   coordinatorsessions POST   /coordinatorsessions(.:format)         coordinatorsessions#create
+new_coordinatorsession GET    /coordinatorsessions/new(.:format)     coordinatorsessions#new
+    coordinatorsession DELETE /coordinatorsessions/:id(.:format)     coordinatorsessions#destroy
+         judgesessions POST   /judgesessions(.:format)               judgesessions#create
+      new_judgesession GET    /judgesessions/new(.:format)           judgesessions#new
+          judgesession DELETE /judgesessions/:id(.:format)           judgesessions#destroy

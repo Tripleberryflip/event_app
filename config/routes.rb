@@ -23,9 +23,9 @@ EventApp::Application.routes.draw do
 
   resources :judges
 
-  resources :event_coordinators
-
-  resources :events
+  resources :event_coordinators do
+    resources :events
+  end
   
   resources :coordinatorsessions, only: [:new, :create, :destroy]
   
