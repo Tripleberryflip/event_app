@@ -10,6 +10,8 @@
 #  event_id       :integer
 #
 
+# Making sure jpbudi11 can push to github.
+
 class Competitor < ActiveRecord::Base
   attr_accessible :name, :score_sheet_id, :event_id
 

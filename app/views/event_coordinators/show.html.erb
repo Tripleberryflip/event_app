@@ -3,8 +3,12 @@
 <p>
   <b>Name:</b>
   <%= @event_coordinator.name %>
+	<b>Email:</b>
+	<%= @event_coordinator.email %>
 </p>
 
 
 <%= link_to 'Edit', edit_event_coordinator_path(@event_coordinator) %> |
 <%= link_to 'Back', event_coordinators_path %>
+<br/>
+<%= link_to "Create a judge", signupjudge_path, class: "btn btn-large btn-primary" %>
