@@ -9,36 +9,30 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
+  <div data-role="navbar">
+    
+</div><!-- /navbar -->
   <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="navbar-inner">
-        <div class="container">
-          <%= link_to "event app", '#', id: "logo" %>
-          <nav>
-            <ul class="nav pull-right">
-              <li><%= link_to "Home",    root_path %></li>
-              <li><%= link_to "Help", 	help_path %></li>
-              <% if signed_in? %>
-			            <li><%= link_to "Event Coordinators", '#' %></li>
-			           
-			                <li><%= link_to "Profile", current_coordinator %></li>
-			                <li><%= link_to "Settings", '#' %></li>
-			                <li class="divider"></li>
-			                <li>
-			                  <%= link_to "Sign out", signoutcoordinator_path, method: "delete" %>
-			                </li>
-			              </ul>
-			            </li>
-			          <% else %>
-			            <li><%= link_to "Sign in", signincoordinator_path %></li>
-			          <% end %>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </header>
+    <div class="container">
+      <div data-role="header">
+        <h1><%= link_to "event app", '#', id: "logo" %></h1>
+        <a href="#" data-icon="gear" class="ui-btn-right">Options</a>
+        <div data-role="navbar">
+          <ul>
+            <li><%= link_to "Home",    root_path %></li>
+            <li><%= link_to "Help", 	help_path %></li>
+            <% if signed_in? %>
+	            <li><%= link_to "Event Coordinators", '#' %></li>
+              
+		        <% else %>
+		            <li><%= link_to "Sign in", coordinatorsignin_path %></li>
+		        <% end %>
+          </ul>
+        </div><!-- /navbar -->
+      </div><!-- /header -->
     <div class="container">
       <%= yield %>
     </div>
   </body>
 </html>
+
