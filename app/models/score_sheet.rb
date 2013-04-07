@@ -11,10 +11,16 @@
 #
 
 class ScoreSheet < ActiveRecord::Base
-	attr_accessible :score_id, :judge_id, :competitor_id
 
+	scope :current, lambda  { |event_id, judge_id, competitor_id|
+  	where("event_id = :event_id and judge_id = :judge_id and competitor_id = :competitor_id",
+  		{ event_id: event_id, judge_id: judge_id, competitor_id: competitor_id })
+  	}
+
+	attr_accessible :event_id, :judge_id, :competitor_id
 	# Association(s)
 	has_many :scores
+	belongs_to :event
 	belongs_to :judge
 	belongs_to :competitor
 end

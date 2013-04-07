@@ -1,0 +1,36 @@
+<div>
+  <% score_sheet = ScoreSheet.current(event.id, judge.id, competitor.id).first  || ScoreSheet.create!(event_id: event.id, judge_id: judge.id, competitor_id: competitor.id) %>
+<%= form_for(score_sheet) do |f| %>
+  <% if score_sheet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(score_sheet.errors.count, "error") %> prohibited this score_sheet from being saved:</h2>
+
+      <ul>
+      <% score_sheet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :event_id %>:
+    <%= f.label event.name %>
+  </div>
+  <div class="field">
+    <%= f.label :judge_id %>:
+    <%= f.label judge.name %>
+  </div>
+    <label> This is the question 1</label>
+    <label for="slider-1">Score:</label>
+    <input name="score_sheet[score][1]" step="0.1" data-mini="true" id="slider-1" min="0" max="10" value="5" type="range">
+
+     <label> This is the question 2</label>
+    <label for="slider-2">Score:</label>
+    <input name="score_sheet[score][2]" step="0.1" data-mini="true" id="slider-2" min="0" max="10" value="5" type="range">
+
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>
+</div>
