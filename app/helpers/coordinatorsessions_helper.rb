@@ -14,6 +14,6 @@ module CoordinatorsessionsHelper
     end
     
     def current_coordinator
-        @current_coordinator ||= User.find_by_remember_coordinator(cookies[:remember_coordinator])
+        @current_coordinator ||= EventCoordinator.find_by_remember_coordinator(cookies[:remember_coordinator])
       end
 end

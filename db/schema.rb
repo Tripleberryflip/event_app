@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(:version => 20130407182737) do
 
   add_index "event_coordinators", ["remember_coordinator"], :name => "index_event_coordinators_on_remember_coordinator"
 
+  create_table "event_judges", :force => true do |t|
+    t.integer  "event_id"
+    t.integer  "judge_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "events", :force => true do |t|
     t.string   "name"
     t.datetime "created_at",           :null => false
@@ -60,6 +67,13 @@ ActiveRecord::Schema.define(:version => 20130407182737) do
     t.string   "email"
   end
 
+  create_table "question_score_templates", :force => true do |t|
+    t.integer  "question_id"
+    t.integer  "score_template_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
   create_table "questions", :force => true do |t|
     t.string   "text"
     t.datetime "created_at", :null => false
@@ -78,13 +92,15 @@ ActiveRecord::Schema.define(:version => 20130407182737) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.integer  "judge_id"
+    t.integer  "event_id"
     t.integer  "competitor_id"
     t.integer  "score_id"
   end
 
   create_table "score_templates", :force => true do |t|
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "score_sheet_id"
     t.integer  "question_id"
     t.integer  "event_id"
   end

@@ -21,7 +21,9 @@ EventApp::Application.routes.draw do
 
   resources :score_sheets
 
-  resources :judges
+  resources :judges do
+    resources :score_sheets
+  end
 
   resources :event_coordinators do
     resources :events
