@@ -16,5 +16,7 @@ class CoordinatorsessionsController < ApplicationController
 
     def destroy
     end
+    
+  
   
 end
