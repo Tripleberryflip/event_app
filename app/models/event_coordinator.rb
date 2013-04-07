@@ -12,6 +12,9 @@
 class EventCoordinator < ActiveRecord::Base
   attr_accessible :name, :event_id, :password, :password_confirmation, :email
   has_secure_password
+  
+  before_save { |event_coordinator| event_coordinator.email = email.downcase }
+  before_save :create_remember_coordinator
 
   # Association(s)
   belongs_to :event, :dependent => :delete
@@ -23,5 +26,11 @@ class EventCoordinator < ActiveRecord::Base
   
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+  
+  private
+
+      def create_remember_coordinator
+        self.remember_coordinator = SecureRandom.urlsafe_base64
+      end
 end
 
