@@ -27,27 +27,26 @@
 					<li><%= link_to "Sign out Judge", judgesignout_path, method: "delete" %>
 					</ul>
 				</div>
-				<div data-role="navbar">
-
-					<ul>
-						<li><%= link_to "Home",	   root_path %></li>
-						<li><%= link_to "Help",		help_path %></li>
-						<% if coordinator_signed_in? %>
-						<li><%= link_to "Current Event Coordinator", '#' %></li>
-						<% else %>
-						<li><%= link_to "Sign in coordinator", coordinatorsignin_path %></li>
-						<% end %>
-						<% if judge_signed_in? %>
-						<li><%= link_to "Current Judge", '#' %></li>
-						<% else %>
-						<li><%= link_to "Sign in coordinator", coordinatorsignin_path %></li>
-						<% end %>
-					</ul>
-				</div><!-- /navbar -->
-			</div><!-- /header -->
-			<div class="container">
-				<%= yield %>
-			</div>
-		</body>
-		</html>
+			<div data-role="navbar">
+				<ul>
+					<li><%= link_to "Home",	   root_path %></li>
+					<li><%= link_to "Help",		help_path %></li>
+					<% if coordinator_signed_in? %>
+					<li><%= link_to "Current Event Coordinator", '#' %></li>
+					<% else %>
+					<li><%= link_to "Sign in coordinator", coordinatorsignin_path %></li>
+					<% end %>
+					<% if judge_signed_in? %>
+					<li><%= link_to "Current Judge", '#' %></li>
+					<% else %>
+					<li><%= link_to "Sign in coordinator", coordinatorsignin_path %></li>
+					<% end %>
+				</ul>
+		  </div><!-- /navbar -->
+	</div><!-- /header -->
+	<div class="container">
+	 <%= yield %>
+  </div>
+</body>
+</html>
 

@@ -3,6 +3,9 @@
 <p>
   <b>Name:</b>
   <%= @event.name %>
+  <br>
+  <b>Event Coordinator:</b>
+  <%= @event.event_coordinator.name rescue 'Unknown' %>
 </p>
 
 
