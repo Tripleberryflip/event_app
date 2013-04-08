@@ -41,16 +41,13 @@ class EventCoordinatorsController < ApplicationController
   # POST /event_coordinators.json
   def create
     @event_coordinator = EventCoordinator.new(params[:event_coordinator])
-
-    respond_to do |format|
-      if @event_coordinator.save
-        format.html { redirect_to @event_coordinator, notice: 'Event coordinator was successfully created.' }
-        format.json { render json: @event_coordinator, status: :created, location: @event_coordinator }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @event_coordinator.errors, status: :unprocessable_entity }
-      end
-    end
+        if @event_coordinator.save
+          coordinator_sign_in @event_coordinator
+          flash[:success] = "You Are Now Signed in"
+          redirect_to @event_coordinator
+        else
+          render 'new'
+        end
   end
 
   # PUT /event_coordinators/1

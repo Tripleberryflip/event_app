@@ -17,7 +17,7 @@ class EventCoordinator < ActiveRecord::Base
   before_save :create_remember_coordinator
 
   # Association(s)
-  belongs_to :event, :dependent => :delete
+  has_many :events
   validates :name, presence: true
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130407182737) do
+ActiveRecord::Schema.define(:version => 20130408033122) do
 
   create_table "competitors", :force => true do |t|
     t.string   "name"
@@ -32,13 +32,6 @@ ActiveRecord::Schema.define(:version => 20130407182737) do
   end
 
   add_index "event_coordinators", ["remember_coordinator"], :name => "index_event_coordinators_on_remember_coordinator"
-
-  create_table "event_judges", :force => true do |t|
-    t.integer  "event_id"
-    t.integer  "judge_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -65,14 +58,10 @@ ActiveRecord::Schema.define(:version => 20130407182737) do
     t.integer  "event_id"
     t.string   "password_digest"
     t.string   "email"
+    t.string   "remember_judge"
   end
 
-  create_table "question_score_templates", :force => true do |t|
-    t.integer  "question_id"
-    t.integer  "score_template_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
-  end
+  add_index "judges", ["remember_judge"], :name => "index_judges_on_remember_judge"
 
   create_table "questions", :force => true do |t|
     t.string   "text"
@@ -92,15 +81,13 @@ ActiveRecord::Schema.define(:version => 20130407182737) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.integer  "judge_id"
-    t.integer  "event_id"
     t.integer  "competitor_id"
-    t.integer  "score_id"
+    t.integer  "event_id"
   end
 
   create_table "score_templates", :force => true do |t|
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-    t.integer  "score_sheet_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "question_id"
     t.integer  "event_id"
   end
