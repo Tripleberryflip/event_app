@@ -1,0 +1,17 @@
+<div data-role="header">Judges score sheets for <%= event.name %></div>
+<% judge = Judge.for_event(event) %>
+<div data-role="content" >
+  <ul data-role='listview' data-inset="true" data-filter="true">
+  <% judge.score_sheets.each do |score_sheet| %>
+     <div data-role="collapsible">
+
+    	<h3><%= judge.name %>'s score sheets</h3>
+    	<%= render "score_sheets/sheet",
+          :event => event,
+          :competitor => competitor,
+          :judge => judge  %>
+    </div>
+    </li>
+  <% end %>
+  </ul>
+</div>

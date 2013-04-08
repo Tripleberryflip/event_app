@@ -15,7 +15,9 @@ EventApp::Application.routes.draw do
 
   resources :questions
 
-  resources :score_templates
+  resources :score_templates do
+    resources :questions
+  end
 
   resources :competitors
 
@@ -25,8 +27,13 @@ EventApp::Application.routes.draw do
     resources :score_sheets
   end
 
+  resources :events
+
   resources :event_coordinators do
-    resources :events
+    resources :events do
+      resources :judges
+      resources :competitors
+    end
   end
   
   resources :coordinatorsessions, only: [:new, :create, :destroy]

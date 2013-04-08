@@ -16,7 +16,8 @@ class ScoreTemplate < ActiveRecord::Base
   attr_accessible :score_sheet_id, :question_id, :event_id
 
   # Association(s)
-  has_and_belongs_to_many :questions#, :through => :question_score_template
+  #has_and_belongs_to_many :questions#, :through => :question_score_template
+  has_many :questions
   belongs_to :event, :dependent => :delete
 
   has_many :event
