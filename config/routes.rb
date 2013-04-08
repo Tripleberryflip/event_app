@@ -33,6 +33,9 @@ EventApp::Application.routes.draw do
     resources :events do
       resources :judges
       resources :competitors
+      resources :scoretemplates do
+        resources :questions
+      end
     end
   end
 

@@ -24,7 +24,7 @@ class EventsController < ApplicationController
   # GET /events/new
   # GET /events/new.json
   def new
-    @event = Event.new({:event_coordinator_id => params[:event_coordinator_id]})
+    @event = Event.new({:event_coordinator_id => current_coordinator.id})
 
     respond_to do |format|
       format.html # new.html.erb

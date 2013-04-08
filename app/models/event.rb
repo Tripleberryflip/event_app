@@ -16,7 +16,7 @@ class Event < ActiveRecord::Base
   attr_accessible :name, :event_coordinator_id, :score_template_id, :judge_id, :competitor_id
 
   # Association(s)
-  has_one :event_coordinator
+  belongs_to :event_coordinator
   has_one :score_template
 
   has_and_belongs_to_many :judges#, :through => :events_judges
