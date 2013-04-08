@@ -16,16 +16,23 @@
     <div class="container">
       <div data-role="header">
         <h1><%= link_to "event app", '#', id: "logo" %></h1>
-        <a href="#" data-icon="gear" class="ui-btn-right">Options</a>
+        <a href='#popupMenu' data-rel="popup" data-role="button" data-inline="true" data-transition="slideup" data-icon="gear">Actions</a>
+              <div-data-role="popup" id="popupMenu" data-theme="d">
+                <ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="d">
+                  <li data-role="divider" data-theme="e">Choose an action</li>
+                  <li><%= link_to "Profile", current_coordinator %></li>
+                  <li><%= link_to "Settings", '#' %></li>
+                  <li><%= link_to "Sign out", coordinatorsignout_path, method: "delete" %>
+                </ul>
+              </div>
         <div data-role="navbar">
           <ul>
             <li><%= link_to "Home",    root_path %></li>
             <li><%= link_to "Help", 	help_path %></li>
             <% if signed_in? %>
 	            <li><%= link_to "Event Coordinators", '#' %></li>
-              
 		        <% else %>
-		            <li><%= link_to "Sign in", coordinatorsignin_path %></li>
+		          <li><%= link_to "Sign in", coordinatorsignin_path %></li>
 		        <% end %>
           </ul>
         </div><!-- /navbar -->

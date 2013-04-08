@@ -17,6 +17,8 @@ class Judge < ActiveRecord::Base
   
   before_save { |judge| judge.email = email.downcase }
 
+  scope :for_event, lambda { |e| where("event_id = ?", e.id ) }
+
   # Association(s)
   has_and_belongs_to_many :events#, :through => :events_judges
   belongs_to :event, :dependent => :delete
