@@ -13,7 +13,8 @@ class Question < ActiveRecord::Base
   attr_accessible :text, :max_value, :score_template_id, :score_id
 
   # Association(s)
-  has_and_belongs_to_many :score_templates#, :through => :question_score_template
+  #has_and_belongs_to_many :score_templates#, :through => :
+  has_many :score_templates
   has_many :scores
 end
 

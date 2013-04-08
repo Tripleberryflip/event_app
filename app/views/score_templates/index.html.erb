@@ -9,6 +9,8 @@
 
 <% @score_templates.each do |score_template| %>
   <tr>
+    <td>Score Template #<%= score_template.id %></td>
+    <td><%= link_to 'Add question', score_template_questions_path(score_template) %></td>
     <td><%= link_to 'Show', score_template %></td>
     <td><%= link_to 'Edit', edit_score_template_path(score_template) %></td>
     <td><%= link_to 'Destroy', score_template, confirm: 'Are you sure?', method: :delete %></td>
