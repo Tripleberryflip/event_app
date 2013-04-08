@@ -7,10 +7,11 @@
     <th></th>
     <th></th>
   </tr>
-
+ 
 <% @events.each do |event| %>
   <tr>
     <td><%= event.name %></td>
+	<td>"coordinator it belongs to" <%= event.event_coordinator_id %></td>
     <td><%= link_to 'Show', event_coordinator_event_path(event.event_coordinator, event) %></td>
     <td><%= link_to 'Edit', edit_event_coordinator_event_path(event.event_coordinator, event) %></td>
     <td><%= link_to 'Destroy', event_coordinator_event_path(event.event_coordinator, event), confirm: 'Are you sure?', method: :delete %></td>
