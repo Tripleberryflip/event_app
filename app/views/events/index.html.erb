@@ -11,7 +11,7 @@
 <% @events.each do |event| %>
   <tr>
     <td><%= event.name %></td>
-    <td><%= link_to 'Show', event_coordinator_event_path(event.event_coordinator, event) %></td>
+    <td><%= link_to 'Show', event_coordinator_event_path(event.event_coordinator_id, event) %></td>
     <td><%= link_to 'Edit', edit_event_coordinator_event_path(event.event_coordinator, event) %></td>
     <td><%= link_to 'Destroy', event_coordinator_event_path(event.event_coordinator, event), confirm: 'Are you sure?', method: :delete %></td>
   </tr>
