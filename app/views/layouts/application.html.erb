@@ -1,51 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Event Application | <%= yield(:title) %></title>
-    <%= stylesheet_link_tag    "application", media: "all" %>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tags %>
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <div data-role="navbar">
-    
+<head>
+	<title>Event Application | <%= yield(:title) %></title>
+	<%= stylesheet_link_tag	   "application", media: "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<div data-role="navbar">
+
 </div><!-- /navbar -->
-  <body>
-    <div class="container">
-      <div data-role="header">
-        <h1><%= link_to "event app", '#', id: "logo" %></h1>
-        <a href='#popupMenu' data-rel="popup" data-role="button" data-inline="true" data-transition="slideup" data-icon="gear">Actions</a>
-              <div-data-role="popup" id="popupMenu" data-theme="d">
-                <ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="d">
-                  <li data-role="divider" data-theme="e">Choose an action</li>
-                  <li><%= link_to "Profile", current_coordinator %></li>
-                  <li><%= link_to "Settings", '#' %></li>
-                  <li><%= link_to "Sign out Coordinator", coordinatorsignout_path, method: "delete" %>
-				  <li><%= link_to "Sign out Judge", judgesignout_path, method: "delete" %>
-                </ul>
-              </div>
-        <div data-role="navbar">
-          <ul>
-            <li><%= link_to "Home",    root_path %></li>
-            <li><%= link_to "Help", 	help_path %></li>
-            <% if coordinator_signed_in? %>
-	            <li><%= link_to "Current Event Coordinator", '#' %></li>
-				<% else %>
-		          <li><%= link_to "Sign in coordinator", coordinatorsignin_path %></li>
-		        <% end %>
-			<% if judge_signed_in? %>
-		         <li><%= link_to "Current Judge", '#' %></li>
-		        <% else %>
-		          <li><%= link_to "Sign in coordinator", coordinatorsignin_path %></li>
-		        <% end %>
-          </ul>
-        </div><!-- /navbar -->
-      </div><!-- /header -->
-    <div class="container">
-      <%= yield %>
-    </div>
-  </body>
-</html>
+<body>
+	<div class="container">
+		<div data-role="header">
+			<h1><%= link_to "event app", '#', id: "logo" %></h1>
+			<a href='#popupMenu' data-rel="popup" data-role="button" data-inline="true" data-transition="slideup" data-icon="gear">Actions</a>
+			<div-data-role="popup" id="popupMenu" data-theme="d">
+			<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="d">
+				<li data-role="divider" data-theme="e">Choose an action</li>
+				<li><%= link_to "Coordinator Profile", current_coordinator %></li>
+				<li><%= link_to "Judge Profile", current_judge %></li>
+				<li><%= link_to "Settings", '#' %></li>
+				<li><%= link_to "Sign out Coordinator", coordinatorsignout_path, method: "delete" %>
+					<li><%= link_to "Sign out Judge", judgesignout_path, method: "delete" %>
+					</ul>
+				</div>
+				<div data-role="navbar">
+
+					<ul>
+						<li><%= link_to "Home",	   root_path %></li>
+						<li><%= link_to "Help",		help_path %></li>
+						<% if coordinator_signed_in? %>
+						<li><%= link_to "Current Event Coordinator", '#' %></li>
+						<% else %>
+						<li><%= link_to "Sign in coordinator", coordinatorsignin_path %></li>
+						<% end %>
+						<% if judge_signed_in? %>
+						<li><%= link_to "Current Judge", '#' %></li>
+						<% else %>
+						<li><%= link_to "Sign in coordinator", coordinatorsignin_path %></li>
+						<% end %>
+					</ul>
+				</div><!-- /navbar -->
+			</div><!-- /header -->
+			<div class="container">
+				<%= yield %>
+			</div>
+		</body>
+		</html>
 

@@ -42,7 +42,7 @@ class EventCoordinatorsController < ApplicationController
   def create
     @event_coordinator = EventCoordinator.new(params[:event_coordinator])
         if @event_coordinator.save
-          sign_in @event_coordinator
+          coordinator_sign_in @event_coordinator
           flash[:success] = "You Are Now Signed in"
           redirect_to @event_coordinator
         else

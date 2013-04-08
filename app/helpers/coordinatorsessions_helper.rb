@@ -1,8 +1,8 @@
 module CoordinatorsessionsHelper
   
-   def coordinator_sign_in(event_coordinators)
-        cookies.permanent[:remember_coordinator] = event_coordinators.remember_coordinator
-        self.current_coordinator = event_coordinators
+   def coordinator_sign_in(event_coordinator)
+        cookies.permanent[:remember_coordinator] = event_coordinator.remember_coordinator
+        self.current_coordinator = event_coordinator
     end
     
     def coordinator_signed_in?
