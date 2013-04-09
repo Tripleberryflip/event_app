@@ -24,8 +24,6 @@ EventApp::Application.routes.draw do
   resources :score_sheets
 
   resources :judges 
-  
-  resources :events 
 
   resources :events
 
