@@ -1,25 +1,28 @@
-<h1>Listing event_coordinators</h1>
+<% provide(:title, 'Coordinators') %>
+<div class="container"><center>
+  <h1>Listing event_coordinators</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th></th>
-    <th></th>
-  </tr>
-  
-<% @event_coordinators.each do |event_coordinator| %>
-  <tr>
-    <td><%= event_coordinator.name %></td>
-    <td><%= event_cordinator.email %></td>
-    <td><%= link_to 'Show', event_coordinator %></td>
-    <td><%= link_to 'Edit', edit_event_coordinator_path(event_coordinator) %></td>
-    <td><%= link_to 'Destroy', event_coordinator, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+    </tr>
+    
+  <% @event_coordinators.each do |event_coordinator| %>
+    <tr>
+      <td><%= event_coordinator.name %></td>
+      <td><%= event_coordinator.email %></td>
+      <td><%= link_to 'Show', event_coordinator %></td>
+      <td><%= link_to 'Edit', edit_event_coordinator_path(event_coordinator) %></td>
+      <td><%= link_to 'Destroy', event_coordinator, confirm: 'Are you sure?', method: :delete %></td>
+    </tr>
+  <% end %>
+  </table>
 
-<br />
+  <br />
 
-<%= link_to 'New Event coordinator', new_event_coordinator_path %>
+  <%= link_to 'New Event coordinator', new_event_coordinator_path %>
+</center></div>
 
