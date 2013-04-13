@@ -25,7 +25,7 @@ describe ScoreSheet do
     end
 
     it 'should be associated with a judge' do
-        Judge.create!(:name => "Judge Judy", :score_sheet_id => @score_sheet.id)
+        Judge.create!(:name => "Judge Judy", email: "user@example.com", password: "111111", password_confirmation: "111111", :score_sheet_id => @score_sheet.id)
         @score_sheet.judge(:force_reload=>:true) != nil
     end
 
