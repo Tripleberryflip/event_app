@@ -12,6 +12,7 @@
   <body>
   	<div class="container">
   		<div data-role="header">
+<<<<<<< HEAD
   			<h1><img src="/assets/judgment.png" /></h1>
   			<% if coordinator_signed_in? || judge_signed_in? %>
           <a href='#popupMenu' data-rel="popup" data-role="button" data-inline="true" data-transition="slideup" data-icon="gear">Actions</a>
@@ -30,6 +31,26 @@
             </ul>
           </div>
         <% end %>
+=======
+  			<h1><%= link_to "event app", '#', id: "logo" %></h1>
+  			<a href='#popupMenu' data-rel="popup" data-role="button" data-inline="true" data-transition="slideup" data-icon="gear">Actions</a>
+  			<div-data-role="popup" id="popupMenu" data-theme="d">
+    			<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="d">
+    				<li data-role="divider" data-theme="e">Choose an action</li>
+    				<% if coordinator_signed_in? %>
+              <li><%= link_to "Coordinator Profile", current_coordinator %></li>
+              <li><%= link_to "Sign out Coordinator", coordinatorsignout_path, method: "delete" %></li>
+              <li><%= link_to "Settings", '#' %></li>
+            <% else %>
+              <% if judge_signed_in? %>
+      				  <li><%= link_to "Judge Profile", current_judge %></li>
+                <li><%= link_to "Sign out Judge", judgesignout_path, method: "delete" %></li>
+                <li><%= link_to "Settings", '#' %></li>
+              <% end %>
+            <% end %>
+    			</ul>
+    		</div>
+>>>>>>> ad793ec346cf4cc6a5566ee0aaea455efb333b6b
   			<div data-role="navbar">
   				<ul>
   					<li><% if coordinator_signed_in? %>
@@ -58,4 +79,7 @@
   </body>
 </html>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ad793ec346cf4cc6a5566ee0aaea455efb333b6b

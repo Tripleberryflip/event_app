@@ -11,4 +11,8 @@ require 'spec_helper'
 #   end
 # end
 describe CoordinatorsessionsHelper do
+<<<<<<< HEAD
+=======
+  
+>>>>>>> ad793ec346cf4cc6a5566ee0aaea455efb333b6b
 end

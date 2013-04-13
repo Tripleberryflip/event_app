@@ -18,6 +18,7 @@ class ScoreSheet < ActiveRecord::Base
   	}
 
 	attr_accessible :event_id, :judge_id, :competitor_id, :score_template
+
 	# Association(s)
 	has_many :scores
 	belongs_to :event

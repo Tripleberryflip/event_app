@@ -27,13 +27,24 @@ describe EventCoordinator do
 
     it 'should exist' do
        EventCoordinator.find(@event_coordinator.id).name.should == 'Lance'
+<<<<<<< HEAD
        EventCoordinator.find(@event_coordinator.id).email.should == 'user@example.com'
        EventCoordinator.find(@event_coordinator.id).password == '111111'
        EventCoordinator.find(@event_coordinator.id).password_confirmation == '111111'
+=======
+    end
+    
+    it 'should exist' do
+      EventCoordinator.find(@event_coordinator.id).email.should == 'user@example.com'
+>>>>>>> ad793ec346cf4cc6a5566ee0aaea455efb333b6b
     end
 
     it 'should belong to an event' do
        Event.create!(:name => "Sweet Event", :event_coordinator_id => @event_coordinator.id)
+<<<<<<< HEAD
+=======
+       @event_coordinator.event_id != nil
+>>>>>>> ad793ec346cf4cc6a5566ee0aaea455efb333b6b
     end
 end
 
