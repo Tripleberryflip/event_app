@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-.....................................FFF
-
 Failures:
 
   1) Application Pages Navigation Bar should have the h1 'Event App' logo
@@ -29,37 +26,3 @@ Failed examples:
 rspec ./spec/requests/application_pages_spec.rb:7 # Application Pages Navigation Bar should have the h1 'Event App' logo
 rspec ./spec/requests/application_pages_spec.rb:15 # Application Pages Home page should have the title 'Home'
 rspec ./spec/requests/application_pages_spec.rb:20 # Application Pages Home page should have the h1 'Welcome to the Event Application'
-=======
-        SECURITY WARNING: No secret option provided to Rack::Session::Cookie.
-        This poses a security threat. It is strongly recommended that you
-        provide a secret to prevent exploits that may be possible from crafted
-        cookies. This will not be supported in future versions of Rack, and
-        future versions will even invalidate your existing user cookies.
-
-        Called from: /Users/josephbudin/.rvm/gems/ruby-1.9.3-p362@rails3tutorial2ndEd/gems/actionpack-3.2.3/lib/action_dispatch/middleware/session/abstract_store.rb:28:in `initialize'.
-
-Rack::File headers parameter replaces cache_control after Rack 1.5.
-.................................F....F
-
-Failures:
-
-  1) Score should belong to a score sheet
-     Failure/Error: ScoreSheet.create!(:score_id => @score.id)
-     ActiveModel::MassAssignmentSecurity::Error:
-       Can't mass-assign protected attributes: score_id
-     # ./spec/models/score_spec.rb:30:in `block (2 levels) in <top (required)>'
-
-  2) ScoreTemplate should have and belong to many questions
-     Failure/Error: @score_template.questions(:force_reload=>:true) != nil
-     ActiveRecord::StatementInvalid:
-       SQLite3::SQLException: no such column: questions.score_template_id: SELECT "questions".* FROM "questions"  WHERE "questions"."score_template_id" = 1
-     # ./spec/models/score_template_spec.rb:36:in `block (2 levels) in <top (required)>'
-
-Finished in 1.49 seconds
-39 examples, 2 failures
-
-Failed examples:
-
-rspec ./spec/models/score_spec.rb:29 # Score should belong to a score sheet
-rspec ./spec/models/score_template_spec.rb:33 # ScoreTemplate should have and belong to many questions
->>>>>>> ad793ec346cf4cc6a5566ee0aaea455efb333b6b
