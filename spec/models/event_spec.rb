@@ -29,7 +29,7 @@ describe Event do
     end
 
     it 'should have an event coordinator' do
-    	EventCoordinator.create!(:name => "Lance", :event_id => @event.id)
+    	EventCoordinator.create!(:name => "Lance", email: "user@example.com", password: "111111", password_confirmation: "111111", :event_id => @event.id)
     	@event.event_coordinator(:force_reload=>:true) != nil
     end
 
@@ -39,7 +39,7 @@ describe Event do
     end
 
     it 'should have a judge' do
-        Judge.create!(:name => "Judge Judy", :event_id => @event.id)
+        Judge.create!(:name => "Judge Judy", email: "user@example.com", password: "111111", password_confirmation: "111111", :event_id => @event.id)
         @event.judges(:force_reload=>:true) != nil
         # SQL Query= events_judges: SELECT "judges".* FROM "judges" INNER JOIN "events_judges" ON "judges"."id" = "events_judges"."judge_id" WHERE "events_judges"."event_id" = 1
     end
@@ -51,9 +51,9 @@ describe Event do
     end
 
     it 'should delete the coordinator when the event is deleted' do
-        coordinator = EventCoordinator.create!(:name=>"Lance", :event_id => @event.id)
+        coordinator = EventCoordinator.create!(:name=>"Lance", email: "user@example.com", password: "111111", password_confirmation: "111111", :event_id => @event.id)
         @event.delete
-        coordinator.event(:force_reload=>:true) == nil
+        coordinator.event_id == nil
     end
 
     it 'should delete the score_template when the event is deleted' do
@@ -63,7 +63,7 @@ describe Event do
     end
 
     it 'should delete the judge when the event is deleted' do
-        judge = Judge.create!(:name => "Judge Judy", :event_id => @event.id)
+        judge = Judge.create!(:name => "Judge Judy", email: "user@example.com", password: "111111", password_confirmation: "111111", :event_id => @event.id)
         @event.delete
         judge.event(:force_reload=>:true) == nil
     end
