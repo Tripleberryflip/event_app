@@ -8,8 +8,8 @@
   <b>Event Coordinator:</b>
   <%= @event.event_coordinator.name rescue 'Unknown' %>
   <br><br>
-  <%= link_to 'Create a score template for this event', '#' %>
-  <!--%= link_to 'Create a score template for this event', new_event_coordinator_event_score_template_path(@event) -->
+  
+  <%= link_to 'Create a score template for this event', new_event_coordinator_event_score_template_path(@event.event_coordinator, @event) %>
 </p>
 
 <%= link_to 'Edit', edit_event_coordinator_event_path(@event) %> |

@@ -12,24 +12,24 @@
   <body>
   	<div class="container">
   		<div data-role="header">
-  			<h1><%= link_to "event app", '#', id: "logo" %></h1>
-  			<a href='#popupMenu' data-rel="popup" data-role="button" data-inline="true" data-transition="slideup" data-icon="gear">Actions</a>
-  			<div-data-role="popup" id="popupMenu" data-theme="d">
-    			<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="d">
-    				<li data-role="divider" data-theme="e">Choose an action</li>
-    				<% if coordinator_signed_in? %>
-              <li><%= link_to "Coordinator Profile", current_coordinator %></li>
-              <li><%= link_to "Sign out Coordinator", coordinatorsignout_path, method: "delete" %></li>
-              <li><%= link_to "Settings", '#' %></li>
-            <% else %>
-              <% if judge_signed_in? %>
-      				  <li><%= link_to "Judge Profile", current_judge %></li>
-                <li><%= link_to "Sign out Judge", judgesignout_path, method: "delete" %></li>
-                <li><%= link_to "Settings", '#' %></li>
+  			<h1><img src="/assets/judgment.png" /></h1>
+  			<% if coordinator_signed_in? || judge_signed_in? %>
+          <a href='#popupMenu' data-rel="popup" data-role="button" data-inline="true" data-transition="slideup" data-icon="gear">Actions</a>
+          <div data-role="popup" id="popupMenu" data-theme="a" class="ui-popup ui-body-a ui-overlay-shadow ui-corner-all" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
+            <ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+              <li data-role="divider" data-theme="a" class="ui-li ui-li-static ui-btn-up-a ui-corner-top">Choose an action</li>
+              <% if coordinator_signed_in? %>
+                <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="b" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-hover-b ui-btn-up-b"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><%= link_to "Coordinator Profile", current_coordinator, class: "ui-link-inherit" %></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li>
+                <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="b" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-corner-bottom ui-li-last ui-btn-up-b"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><%= link_to "Settings", '#', class: "ui-link-inherit" %></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li>
+                <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="b" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-b"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><%= link_to "Sign out Coordinator", coordinatorsignout_path, method: "delete", class: "ui-link-inherit" %></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li>
+              <% elsif judge_signed_in? %>
+                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="b" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-corner-bottom ui-li-last ui-btn-up-b"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><%= link_to "Judge Profile", current_judge, class: "ui-link-inherit" %></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li>
+                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="b" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-corner-bottom ui-li-last ui-btn-up-b"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><%= link_to "Settings", '#', class: "ui-link-inherit" %></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li>
+                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="b" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-corner-bottom ui-li-last ui-btn-up-b"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><%= link_to "Sign out Judge", judgesignout_path, method: "delete", class: "ui-link-inherit" %></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li>
               <% end %>
-            <% end %>
-    			</ul>
-    		</div>
+            </ul>
+          </div>
+        <% end %>
   			<div data-role="navbar">
   				<ul>
   					<li><% if coordinator_signed_in? %>
@@ -57,4 +57,3 @@
     </div>
   </body>
 </html>
-

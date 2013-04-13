@@ -24,7 +24,8 @@ class ScoreTemplatesController < ApplicationController
   # GET /score_templates/new
   # GET /score_templates/new.json
   def new
-    @score_template = ScoreTemplate.new({:event_id => event.id})
+    @event = Event.find(params[:event_id])
+    @score_template = ScoreTemplate.new(:event_id => @event.id)
 
     respond_to do |format|
       format.html # new.html.erb

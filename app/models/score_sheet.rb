@@ -17,12 +17,14 @@ class ScoreSheet < ActiveRecord::Base
   		{ event_id: event_id, judge_id: judge_id, competitor_id: competitor_id })
   	}
 
-	attr_accessible :event_id, :judge_id, :competitor_id
+	attr_accessible :event_id, :judge_id, :competitor_id, :score_template
+
 	# Association(s)
 	has_many :scores
 	belongs_to :event
 	belongs_to :judge
 	belongs_to :competitor
+	belongs_to :score_template
 end
 
 

@@ -26,10 +26,17 @@ describe Score do
         Score.find(@score.id).value.should == 5
     end
 
+<<<<<<< HEAD
+    #it 'should belong to a score sheet' do
+    #    ScoreSheet.create!(:score_id => @score.id)
+    #    @score.score_sheet(:force_reload=>:true) != nil
+    #end
+=======
     it 'should belong to a score sheet' do
         ScoreSheet.create!(:score_id => @score.id)
         @score.score_sheet(:force_reload=>:true) != nil
     end
+>>>>>>> ad793ec346cf4cc6a5566ee0aaea455efb333b6b
 
     it 'should belong to a question' do
     	Question.create!(:text => "How good was the act?", :max_value => 5)
