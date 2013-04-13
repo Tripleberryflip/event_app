@@ -1,0 +1,19 @@
+<% provide(:title, 'Coordinator Profile') %>
+<div class="container">
+	<center><p id="notice"><%= notice %></p>
+	<h1> Welcome to your Event Coordinator profile page!</h1>
+	<br />
+	<p>
+	  <b>Name:</b>
+	  	<%= @event_coordinator.name %>
+	  <br />
+	  <b>Email:</b>
+		<%= @event_coordinator.email %>
+	  <br />
+		<%= link_to "Create an event", new_event_coordinator_event_path(@event_coordinator) %>
+	</p>
+
+	<%= link_to 'Edit', edit_event_coordinator_path(@event_coordinator) %> |
+	<%= link_to 'Back', event_coordinators_path %>
+	<br/></center>
+</div>

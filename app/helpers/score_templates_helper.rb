@@ -1,0 +1,2 @@
+module ScoreTemplatesHelper
+end

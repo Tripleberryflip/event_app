@@ -1,0 +1,17 @@
+<%= form_for(@score_sheet) do |f| %>
+  <% if @score_sheet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@score_sheet.errors.count, "error") %> prohibited this score_sheet from being saved:</h2>
+
+      <ul>
+      <% @score_sheet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

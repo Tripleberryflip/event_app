@@ -1,0 +1,25 @@
+<% provide(:title, 'Events') %>
+<h1>Listing events</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+ 
+<% @events.each do |event| %>
+<!-- NOTE: Add in authentication so that an event coordinator only sees his/her own events when viewing through event_coordinator_event_path -->
+  <tr>
+    <td><%= event.name %></td>
+    <td><%= link_to 'Show', event_coordinator_event_path(event.event_coordinator, event) %></td>
+    <td><%= link_to 'Edit', edit_event_coordinator_event_path(event.event_coordinator, event) %></td>
+    <td><%= link_to 'Destroy', event_coordinator_event_path(event.event_coordinator, event), confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Event', new_event_coordinator_event_path %>

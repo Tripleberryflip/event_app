@@ -1,0 +1,23 @@
+<h1>Listing judges</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @judges.each do |judge| %>
+  <tr>
+    <td><%= judge.name %></td>
+    <td><%= link_to 'Show', judge %></td>
+    <td><%= link_to 'Edit', edit_judge_path(judge) %></td>
+    <td><%= link_to 'Destroy', judge, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Judge', new_judge_path %>

@@ -1,0 +1,26 @@
+<% provide(:title, 'Home') %>
+<center>
+	<div class="hero-unit">
+	    <h1><strong>Welcome to the Event Application</strong></h1>
+	    <h2>This is the home page for the Event Judging Application.</h2>
+		<b>New to the site?</b><br/>
+		<%= link_to "Register to be an event coordinator and get started", signupcoordinator_path %>
+		<br/><br/>
+	    <b> Otherwise sign in with your credentials here: </b><br />
+	    <!--
+	    <a href="#popupBasic" data-rel="popup">Sign in as an event coordinator</a>
+		<div data-role="popup" id="popupBasic">
+	    	<h3>Please sign in as an event coordinator</h3>
+			<label for="ec_name">Username:</label>
+		    <input id="ec_name" type="text" data-theme="a" placeholder="username" value="" name="ec_user" />
+		    <label for="ec_password">Password:</label>
+		    <input id="ec_password" type="password" data-theme="a" placeholder="password" value="" name="ec_password">
+		    <button id="submit">
+		    <div data-theme="b" aria-disabled="false">
+		    </div> 
+		</div><br /> -->
+	    <%= link_to "Sign in as event coordinator", coordinatorsignin_path %>
+	    <br/>
+	    <%= link_to "Sign in as judge", judgesignin_path %>
+	</div>
+</center>
