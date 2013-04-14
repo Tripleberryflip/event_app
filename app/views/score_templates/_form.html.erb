@@ -1,8 +1,6 @@
-<<<<<<< HEAD
+
 <%= form_for([@score_template]) do |f| %>
-=======
-<%= form_for(@score_template) do |f| %>
->>>>>>> ad793ec346cf4cc6a5566ee0aaea455efb333b6b
+
   <% if @score_template.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@score_template.errors.count, "error") %> prohibited this score_template from being saved:</h2>
@@ -15,12 +13,10 @@
     </div>
   <% end %>
   
-<<<<<<< HEAD
   <div class="field">
     <%= f.hidden_field :event_id %>
   </div>
-=======
->>>>>>> ad793ec346cf4cc6a5566ee0aaea455efb333b6b
+
   <div class="actions">
     <%= f.submit %>
   </div>
