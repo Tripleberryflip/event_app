@@ -11,6 +11,11 @@
   
   <%= link_to 'Create a score template for this event', new_event_coordinator_event_score_template_path(@event.event_coordinator, @event) %>
 
+<br>
+
+<%= link_to "Create a judge for this event", signupjudge_path, class: "btn btn-large btn-primary" %>
+
+
 </p>
 
 <%= link_to 'Edit', edit_event_coordinator_event_path(@event) %> |
