@@ -1,28 +1,25 @@
+        SECURITY WARNING: No secret option provided to Rack::Session::Cookie.
+        This poses a security threat. It is strongly recommended that you
+        provide a secret to prevent exploits that may be possible from crafted
+        cookies. This will not be supported in future versions of Rack, and
+        future versions will even invalidate your existing user cookies.
+
+        Called from: /Users/josephbudin/.rvm/gems/ruby-1.9.3-p362@rails3tutorial2ndEd/gems/actionpack-3.2.3/lib/action_dispatch/middleware/session/abstract_store.rb:28:in `initialize'.
+
+Rack::File headers parameter replaces cache_control after Rack 1.5.
+........................................F
+
 Failures:
 
-  1) Application Pages Navigation Bar should have the h1 'Event App' logo
-     Failure/Error: visit 'navigation_pages/home'
-     NoMethodError:
-       undefined method `visit' for #<RSpec::Core::ExampleGroup::Nested_12::Nested_1:0x45a55a0>
-     # ./spec/requests/application_pages_spec.rb:8:in `block (3 levels) in <top (required)>'
+  1) ScoreTemplate should have and belong to many questions
+     Failure/Error: @score_template.questions(:force_reload=>:true) != nil
+     ActiveRecord::StatementInvalid:
+       SQLite3::SQLException: no such column: questions.score_template_id: SELECT "questions".* FROM "questions"  WHERE "questions"."score_template_id" = 1
+     # ./spec/models/score_template_spec.rb:37:in `block (2 levels) in <top (required)>'
 
-  2) Application Pages Home page should have the title 'Home'
-     Failure/Error: visit 'navigation_pages/home'
-     NoMethodError:
-       undefined method `visit' for #<RSpec::Core::ExampleGroup::Nested_12::Nested_2:0x45aaef8>
-     # ./spec/requests/application_pages_spec.rb:16:in `block (3 levels) in <top (required)>'
-
-  3) Application Pages Home page should have the h1 'Welcome to the Event Application'
-     Failure/Error: visit 'navigation_pages/home'
-     NoMethodError:
-       undefined method `visit' for #<RSpec::Core::ExampleGroup::Nested_12::Nested_2:0x45b0da8>
-     # ./spec/requests/application_pages_spec.rb:21:in `block (3 levels) in <top (required)>'
-
-Finished in 21.75 seconds
-40 examples, 3 failures
+Finished in 1.95 seconds
+41 examples, 1 failure
 
 Failed examples:
 
-rspec ./spec/requests/application_pages_spec.rb:7 # Application Pages Navigation Bar should have the h1 'Event App' logo
-rspec ./spec/requests/application_pages_spec.rb:15 # Application Pages Home page should have the title 'Home'
-rspec ./spec/requests/application_pages_spec.rb:20 # Application Pages Home page should have the h1 'Welcome to the Event Application'
+rspec ./spec/models/score_template_spec.rb:33 # ScoreTemplate should have and belong to many questions
