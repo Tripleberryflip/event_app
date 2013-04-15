@@ -18,5 +18,3 @@ class Competitor < ActiveRecord::Base
   has_many :score_sheets
   belongs_to :event, :dependent => :delete
 end
-
-

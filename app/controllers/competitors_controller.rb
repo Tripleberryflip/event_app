@@ -24,7 +24,8 @@ class CompetitorsController < ApplicationController
   # GET /competitors/new
   # GET /competitors/new.json
   def new
-    @competitor = Competitor.new
+    @event = Event.find(params[:event_id])
+    @competitor = Competitor.new(:event_id => @event.id)
 
     respond_to do |format|
       format.html # new.html.erb
