@@ -3,15 +3,12 @@ class JudgesessionsController < ApplicationController
     end
 
     def create
-
       judge = Judge.find_by_name(params[:judgesession][:name])
           if judge && judge.authenticate(params[:judgesession][:password])
             judge_sign_in judge
             redirect_to judge
           else
-
-            flash.now[:error] = 'Invalid user-name/password combination'
-
+            flash.now[:error] = 'Invalid user-name/password combination' # Not quite right!
             render 'new'
           end
     end

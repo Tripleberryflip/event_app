@@ -23,7 +23,10 @@
 
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation %>
+
+	   <%= f.hidden_field :event_id %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
