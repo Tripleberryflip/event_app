@@ -1,9 +1,9 @@
-<div data-role="header">Judges for <%= event.name %></div>
-<% judges = Judge.for_event(event) %>
+<div data-role="header">Score Templates for <%= event.name %></div>
+<% templates = ScoreTemplate.for_event(event) %>
 <div data-role="collapsible-set" data-theme="c" data-content-theme="d" data-inset="false">
-  <% judges.each do |judge| %>
+  <% templates.each do |template| %>
     <div data-role="collapsible">
-    	<h2><%= judge.name %></h2>
+    	<h2><%= template.id %></h2>
     	<!--= render "score_sheets/sheet",
           :event => event,
           :competitor => competitor,

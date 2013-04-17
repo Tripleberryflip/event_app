@@ -1,17 +1,14 @@
 <div data-role="header">Competitors for <%= event.name %></div>
 <% competitors = Competitor.for_event(event) %>
-<div data-role="content" >
-  <ul data-role='listview' data-inset="true" data-filter="true">
+<div data-role="collapsible-set" data-theme="c" data-content-theme="d" data-inset="false">
   <% competitors.each do |competitor| %>
-     <div data-role="collapsible">
-
+    <div data-role="collapsible">
     	<h3><%= competitor.name %></h3>
-      <%= render "score_sheets/sheet",
-          :event => event,
-          :competitor => competitor,
-          :judge => judge  %>
+        <!--<ul data-role="listview">
+          <li><= render "score_sheets/sheet",
+              :event => event,
+              :competitor => competitor,
+              :judge => judge %><li-->
     </div>
-    </li>
   <% end %>
-  </ul>
 </div>
