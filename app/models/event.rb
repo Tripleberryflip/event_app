@@ -15,6 +15,8 @@
 class Event < ActiveRecord::Base
   attr_accessible :name, :event_coordinator_id, :score_template_id, :judge_id, :competitor_id
 
+  scope :for_coordinator, lambda { |coordinator| where("event_coordinator_id = ?", coordinator.id ) }
+
   # Association(s)
   belongs_to :event_coordinator
   has_one :score_template
