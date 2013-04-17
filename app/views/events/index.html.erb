@@ -1,9 +1,10 @@
 <% provide(:title, 'Events') %>
-<h1>Listing events</h1>
+<center><h1>Listing events</h1>
 
 <table>
   <tr>
     <th>Name</th>
+    <th>Event Coordinator</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,6 +14,7 @@
 <!-- NOTE: Add in authentication so that an event coordinator only sees his/her own events when viewing through event_coordinator_event_path -->
   <tr>
     <td><%= event.name %></td>
+    <td><%= event.event_coordinator.name rescue 'Unknown' %></td>
     <td><%= link_to 'Show', event_coordinator_event_path(event.event_coordinator, event) %></td>
     <td><%= link_to 'Edit', edit_event_coordinator_event_path(event.event_coordinator, event) %></td>
     <td><%= link_to 'Destroy', event_coordinator_event_path(event.event_coordinator, event), confirm: 'Are you sure?', method: :delete %></td>
@@ -21,6 +23,5 @@
 </table>
 
 <br />
-<%= link_to "Create a judge for this event", signupjudge_path, class: "btn btn-large btn-primary" %>
-<br>
-<%= link_to 'New Event', new_event_coordinator_event_path %>
+
+<%= link_to 'New Event', new_event_coordinator_event_path %></center>

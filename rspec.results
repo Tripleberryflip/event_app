@@ -3,6 +3,7 @@
         provide a secret to prevent exploits that may be possible from crafted
         cookies. This will not be supported in future versions of Rack, and
         future versions will even invalidate your existing user cookies.
+<<<<<<< HEAD
 
         Called from: /Users/josephbudin/.rvm/gems/ruby-1.9.3-p362@rails3tutorial2ndEd/gems/actionpack-3.2.3/lib/action_dispatch/middleware/session/abstract_store.rb:28:in `initialize'.
 
@@ -23,3 +24,13 @@ Finished in 1.95 seconds
 Failed examples:
 
 rspec ./spec/models/score_template_spec.rb:33 # ScoreTemplate should have and belong to many questions
+=======
+
+        Called from: /usr/local/rvm/gems/ruby-1.9.3-p125@defaults/gems/actionpack-3.2.3/lib/action_dispatch/middleware/session/abstract_store.rb:28:in `initialize'.
+
+Rack::File headers parameter replaces cache_control after Rack 1.5.
+.....................................
+
+Finished in 4.91 seconds
+37 examples, 0 failures
+>>>>>>> 30dbec1dba6bf36f9578b4bc16eb9f4015c2c781

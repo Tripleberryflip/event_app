@@ -24,7 +24,8 @@ class JudgesController < ApplicationController
   # GET /judges/new
   # GET /judges/new.json
   def new
-    @judge = Judge.new
+    @event = Event.find(params[:event_id])
+    @judge = Judge.new(:event_id => @event.id)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,7 +45,7 @@ class JudgesController < ApplicationController
 
     respond_to do |format|
       if @judge.save
-        format.html { redirect_to @judge, notice: 'Judge was successfully created.' }
+        format.html { redirect_to event_coordinator_events_path(@judge.event.event_coordinator_id, @judge.event_id), notice: 'Judge was successfully created.' }
         format.json { render json: @judge, status: :created, location: @judge }
       else
         format.html { render action: "new" }

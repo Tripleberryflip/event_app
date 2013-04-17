@@ -10,7 +10,9 @@
 	  <b>Email:</b>
 		<%= @event_coordinator.email %>
 	  <br />
-		<%= link_to "Create an event", new_event_coordinator_event_path(@event_coordinator) %>
+		<%= link_to "Create an event", new_event_coordinator_event_path(@event_coordinator) %> 
+		<br />
+		<%= link_to "View events", event_coordinator_events_path(@event_coordinator) %>
 	</p>
 
 	<%= link_to 'Edit', edit_event_coordinator_path(@event_coordinator) %> |

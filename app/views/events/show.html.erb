@@ -9,13 +9,12 @@
   <%= @event.event_coordinator.name rescue 'Unknown' %>
   <br><br>
   
-  <%= link_to 'Create a score template for this event', new_event_coordinator_event_score_template_path(@event.event_coordinator, @event) %>
-
-<br>
-
-<%= link_to "Create a judge for this event", signupjudge_path, class: "btn btn-large btn-primary" %>
-
-
+  Want to add to this event? <br>
+  <%= link_to 'Create and add a competitor', new_event_coordinator_event_competitor_path(@event.event_coordinator, @event) %>
+  <br>
+  <%= link_to 'Create and assign a judge', new_event_coordinator_event_judge_path(@event.event_coordinator, @event) %>
+  <br>
+  <%= link_to 'Create a score template', new_event_coordinator_event_score_template_path(@event.event_coordinator, @event) %>
 </p>
 
 <%= link_to 'Edit', edit_event_coordinator_event_path(@event) %> |

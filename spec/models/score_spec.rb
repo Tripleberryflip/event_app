@@ -31,7 +31,6 @@ describe Score do
     #    @score.score_sheet(:force_reload=>:true) != nil
     #end
 
-
     it 'should belong to a question' do
     	Question.create!(:text => "How good was the act?", :max_value => 5)
     	@score.question(:force_reload=>:true) != nil
