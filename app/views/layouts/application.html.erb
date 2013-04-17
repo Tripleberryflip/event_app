@@ -34,6 +34,8 @@
   				<ul>
   					<li><% if coordinator_signed_in? %>
                   <%= link_to "Home",	current_coordinator %>
+				<% elsif judge_signed_in? %>
+				<%= link_to "Home",	current_judge %>
                 <% else %>
                   <%= link_to "Home", root_path %>
                 <% end %>
