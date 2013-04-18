@@ -33,9 +33,15 @@ describe EventCoordinator do
        EventCoordinator.find(@event_coordinator.id).password_confirmation == '111111'
      end
 
+    
+    it 'should exist' do
+      EventCoordinator.find(@event_coordinator.id).email.should == 'user@example.com'
+    end
+
     it 'should belong to an event' do
        Event.create!(:name => "Sweet Event", :event_coordinator_id => @event_coordinator.id)
        @event_coordinator.event_id != nil
+
     end
     
     describe "when name is not present" do
