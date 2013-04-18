@@ -9,7 +9,7 @@ class CoordinatorsessionsController < ApplicationController
             coordinator_sign_in event_coordinator
             redirect_to event_coordinator
           else
-            flash.now[:error] = 'Invalid email/password combination' # Not quite right!
+            flash.now[:error] = 'Invalid email/password combination'
             render 'new'
           end
     end

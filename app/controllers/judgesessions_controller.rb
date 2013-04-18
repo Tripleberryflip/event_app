@@ -7,7 +7,7 @@ class JudgesessionsController < ApplicationController
           if judge && judge.authenticate(params[:judgesession][:password])
             redirect_to event_coordinator_events_path(judge.event.event_coordinator, judge.event_id)
           else
-            flash.now[:error] = 'Invalid user-name/password combination' # Not quite right!
+            flash.now[:error] = 'Invalid user-name/password combination' 
             render 'new'
           end
     end

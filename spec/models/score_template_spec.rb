@@ -33,7 +33,7 @@ describe ScoreTemplate do
     it 'should have and belong to many questions' do
     	Question.create!(:text => "How good was the act?", :max_value => 5)
         Question.create!(:text => 'How was their stage presence?', :max_value => 8)
-        
+    	@score_template.questions(:force_reload=>:true) != nil
         # SQL Query = questions_score_templates: SELECT "questions".* FROM "questions" INNER JOIN "questions_score_templates" ON "questions"."id" = "questions_score_templates"."questions_id" WHERE "questions_score_templates"."score_template_id" = 1
     end
 end

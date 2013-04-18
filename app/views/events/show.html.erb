@@ -7,15 +7,18 @@
   <br>
   <b>Event Coordinator:</b>
   <%= @event.event_coordinator.name rescue 'Unknown' %>
+
+  <br>
+  <%= render :partial => 'competitors/index', :locals => {:event => @event } %></center>
+  <%= link_to 'Create and add a new competitor', new_event_coordinator_event_competitor_path(@event.event_coordinator, @event) %>
   <br><br>
-  
-  Want to add to this event? <br>
-  <%= link_to 'Create and add a competitor', new_event_coordinator_event_competitor_path(@event.event_coordinator, @event) %>
-  <br>
+  <center><%= render :partial => 'judges/show', :locals => {:event => @event } %></center>
   <%= link_to 'Create and assign a judge', new_event_coordinator_event_judge_path(@event.event_coordinator, @event) %>
-  <br>
+  <br><br>
+  <center><%= render :partial => 'score_templates/show', :locals => {:event => @event } %></center>
   <%= link_to 'Create a score template', new_event_coordinator_event_score_template_path(@event.event_coordinator, @event) %>
+  <br><br>
 </p>
 
-<%= link_to 'Edit', edit_event_coordinator_event_path(@event) %> |
+<center><%= link_to 'Edit', edit_event_coordinator_event_path(@event) %> |
 <%= link_to 'Back', event_coordinator_events_path(@event.event_coordinator, @event) %></center>
