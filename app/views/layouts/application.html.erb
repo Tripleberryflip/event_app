@@ -43,13 +43,13 @@
   					<li><%= link_to "Help",		help_path %></li>
   					<% if coordinator_signed_in? %>
   					 <li><%= link_to "Current Event Coordinator", current_coordinator %></li>
-  					<% else %>
-  					 <li><%= link_to "Sign in coordinator", coordinatorsignin_path %></li>
-  					<% end %>
-  					<% if judge_signed_in? %>
+             <li><%= link_to "Sign out coordinator", coordinatorsignout_path %></li>
+  					<% elsif judge_signed_in? %>
   					 <li><%= link_to "Current Judge", current_judge %></li>
+             <li><%= link_to "Sign out judge", judgesignout_path %></li>
   					<% else %>
   					 <li><%= link_to "Sign in coordinator", coordinatorsignin_path %></li>
+             <li><%= link_to "Sign in judge", judgesignin_path %></li>
   					<% end %>
   				</ul>
   		  </div><!-- /navbar -->
