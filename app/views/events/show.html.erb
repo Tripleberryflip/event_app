@@ -7,6 +7,7 @@
   <br>
   <b>Event Coordinator:</b>
   <%= @event.event_coordinator.name rescue 'Unknown' %>
+
   <br>
   <%= render :partial => 'competitors/index', :locals => {:event => @event } %></center>
   <%= link_to 'Create and add a new competitor', new_event_coordinator_event_competitor_path(@event.event_coordinator, @event) %>

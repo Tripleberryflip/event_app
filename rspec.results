@@ -4,10 +4,10 @@
         cookies. This will not be supported in future versions of Rack, and
         future versions will even invalidate your existing user cookies.
 
-        Called from: /usr/local/rvm/gems/ruby-1.9.3-p125@defaults/gems/actionpack-3.2.3/lib/action_dispatch/middleware/session/abstract_store.rb:28:in `initialize'.
+        Called from: /Users/josephbudin/.rvm/gems/ruby-1.9.3-p362@rails3tutorial2ndEd/gems/actionpack-3.2.3/lib/action_dispatch/middleware/session/abstract_store.rb:28:in `initialize'.
 
 Rack::File headers parameter replaces cache_control after Rack 1.5.
-.....................................
+.........................................
 
-Finished in 4.91 seconds
-37 examples, 0 failures
+Finished in 1.78 seconds
+41 examples, 0 failures
