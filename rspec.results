@@ -7,7 +7,19 @@
         Called from: /Users/josephbudin/.rvm/gems/ruby-1.9.3-p362@rails3tutorial2ndEd/gems/actionpack-3.2.3/lib/action_dispatch/middleware/session/abstract_store.rb:28:in `initialize'.
 
 Rack::File headers parameter replaces cache_control after Rack 1.5.
-.........................................
+........................................F
 
-Finished in 1.78 seconds
-41 examples, 0 failures
+Failures:
+
+  1) ScoreTemplate should have and belong to many questions
+     Failure/Error: @score_template.questions(:force_reload=>:true) != nil
+     ActiveRecord::StatementInvalid:
+       SQLite3::SQLException: no such column: questions.score_template_id: SELECT "questions".* FROM "questions"  WHERE "questions"."score_template_id" = 1
+     # ./spec/models/score_template_spec.rb:36:in `block (2 levels) in <top (required)>'
+
+Finished in 2.48 seconds
+41 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/models/score_template_spec.rb:33 # ScoreTemplate should have and belong to many questions
