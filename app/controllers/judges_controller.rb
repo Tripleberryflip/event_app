@@ -1,4 +1,8 @@
 class JudgesController < ApplicationController
+  
+  before_filter :require_logged_in
+  before_filter :require_event_coordinator, only: [:create, :new, :destory]
+  
   # GET /judges
   # GET /judges.json
   def index
