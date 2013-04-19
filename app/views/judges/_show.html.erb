@@ -8,6 +8,11 @@
           :event => event,
           :competitor => competitor,
           :judge => judge  -->
+        <ul data-role="listview">
+          <li data-icon="info"><%= link_to "Show and update this Judge's details", event_coordinator_event_judge_path(event.event_coordinator, event, judge) %></li>
+          <li data-icon="gear"><%= link_to "Edit the Judge's name", edit_event_coordinator_event_judge_path(event.event_coordinator, event, judge) %></li>
+          <li data-icon="delete"><%= link_to 'Remove this judge from the event', event_coordinator_event_judge_path(event.event_coordinator, event, judge), confirm: 'Are you sure you want to remove this event?', method: :delete %></li>
+      </ul>
     </div>
   <% end %>
 </div>
