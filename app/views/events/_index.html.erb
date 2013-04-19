@@ -1,14 +1,15 @@
 <div data-role="header">Events coordinated by <%= event_coordinator.name %></div>
 <% events = Event.for_coordinator(event_coordinator) %>
 <div data-role="collapsible-set" data-theme="c" data-content-theme="d" data-inset="false">
-  <div data-role="collapsible">
-    <% events.each do |event| %>
+  <% events.each do |event| %>    
+    <div data-role="collapsible">
       <h2><%= event.name %></h2>
       <ul data-role="listview">
           <li><%= link_to 'Show and update details for this event', event_coordinator_event_path(event.event_coordinator, event) %></li>
           <li><%= link_to 'Edit the event name', edit_event_coordinator_event_path(event.event_coordinator, event) %></li>
           <li><%= link_to 'Delete this event', event_coordinator_event_path(event.event_coordinator, event), confirm: 'Are you sure you want to remove this event?', method: :delete %></li>
       </ul>
-    <% end %>
-  </div>
+    </div>
+    <br>
+  <% end %>
 </div>

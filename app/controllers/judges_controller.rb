@@ -45,10 +45,8 @@ class JudgesController < ApplicationController
 
     respond_to do |format|
       if @judge.save
-        
+        format.html { redirect_to event_coordinator_event_path(@judge.event.event_coordinator, @judge.event), notice: 'Judge was successfully created.' }
         JudgeMailer.newjudge_email(@judge).deliver
-        
-        format.html { redirect_to event_coordinator_events_path(@judge.event.event_coordinator_id, @judge.event_id), notice: 'Judge was successfully created.' }
         format.json { render json: @judge, status: :created, location: @judge }
       else
         format.html { render action: "new" }

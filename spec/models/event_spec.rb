@@ -54,7 +54,6 @@ describe Event do
         coordinator = EventCoordinator.create!(:name=>"Lance", email: "user@example.com", password: "111111", password_confirmation: "111111", :event_id => @event.id)
         @event.delete
         coordinator.event_id == nil
-
     end
 
     it 'should delete the score_template when the event is deleted' do
