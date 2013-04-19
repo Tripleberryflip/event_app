@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  
+  before_filter :require_event_coordinator, only: :create
   # GET /events
   # GET /events.json
   def index
@@ -78,6 +80,14 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to events_url }
       format.json { head :no_content }
+    end
+  end
+  
+  private
+  
+  def require_event_coordinator
+    unless coordinator_signed_in?
+      redirect_to root_path
     end
   end
 end
