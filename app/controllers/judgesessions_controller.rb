@@ -5,7 +5,8 @@ class JudgesessionsController < ApplicationController
     def create
       judge = Judge.find_by_name(params[:judgesession][:name])
           if judge && judge.authenticate(params[:judgesession][:password])
-            redirect_to event_coordinator_events_path(judge.event.event_coordinator, judge.event_id)
+            judge_sign_in judge
+            redirect_to judge
           else
             flash.now[:error] = 'Invalid user-name/password combination' 
             render 'new'
