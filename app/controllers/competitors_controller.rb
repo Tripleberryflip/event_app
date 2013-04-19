@@ -45,7 +45,7 @@ class CompetitorsController < ApplicationController
 
     respond_to do |format|
       if @competitor.save
-        format.html { redirect_to @competitor, notice: 'Competitor was successfully created.' }
+        format.html { redirect_to event_coordinator_event_path(@competitor.event.event_coordinator, @competitor.event), notice: 'Competitor was successfully created.' }
         format.json { render json: @competitor, status: :created, location: @competitor }
       else
         format.html { render action: "new" }
