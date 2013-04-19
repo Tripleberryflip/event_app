@@ -1,4 +1,4 @@
-<%= form_for(@score_template) do |f| %>
+<%= form_for([@score_template, @question]) do |f| %>
   <% if @score_template.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@score_template.errors.count, "error") %> prohibited this score_template from being saved:</h2>
@@ -13,13 +13,7 @@
   
   <div class="field">
     <%= f.hidden_field :event_id %>
-
-    <%= f.fields_for :questions do |builder| %>
-      <%= builder.text_field :text, :placeholder => "Insert question text here" %>
-      <%= builder.check_box :_destroy %>
-      <%= builder.label :_destroy, "Remove Question" %>
-    <% end %>
-    <%= link_to "Add another question", '#' %>
+    <%= f.text_field :text, :placeholder => 'Insert question text here' %>
   </div>
   <div class="actions">
     <%= f.submit %>

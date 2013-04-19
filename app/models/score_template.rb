@@ -20,7 +20,9 @@ class ScoreTemplate < ActiveRecord::Base
   # Association(s)
   #has_and_belongs_to_many :questions#, :through => :question_score_template
   has_many :questions
-  belongs_to :event, :dependent => :delete
+  accepts_nested_attributes_for :questions, :allow_destroy => true
+
+  belongs_to :event, :dependent => :destroy
 
   has_many :event
 end

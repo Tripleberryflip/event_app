@@ -27,6 +27,8 @@ class ScoreTemplatesController < ApplicationController
     @event = Event.find(params[:event_id])
     @score_template = ScoreTemplate.new(:event_id => @event.id)
 
+    @question = @score_template.questions.build
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @score_template }
