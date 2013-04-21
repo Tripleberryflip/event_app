@@ -1,5 +1,5 @@
 class JudgeMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "tripleberryflip@gmail.com"
   
   def newjudge_email(judge)
     @judge = judge

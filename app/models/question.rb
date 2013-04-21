@@ -10,11 +10,11 @@
 #
 
 class Question < ActiveRecord::Base
-  attr_accessible :text, :max_value, :score_template_id, :score_id
+  attr_accessible :text, :max_value, :score_template_id
 
   # Association(s)
-  #has_and_belongs_to_many :score_templates#, :through => :
-  has_many :score_templates
+  #has_and_belongs_to_many :score_templates#, :through => :questions_score_templates, :dependent => :destroy
+  belongs_to :score_templates
   has_many :scores
 end
 
