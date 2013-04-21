@@ -1,4 +1,8 @@
 class ScoreSheetsController < ApplicationController
+  
+  before_filter :require_logged_in
+  before_filter :require_judge, only: [:create, :new, :edit, :update, :destory]
+  
   # GET /score_sheets
   # GET /score_sheets.json
   def index
@@ -78,6 +82,15 @@ class ScoreSheetsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to score_sheets_url }
       format.json { head :no_content }
+    end
+  end
+  
+  private
+  
+  def require_judge
+    unless judge_signed_in?
+      flash[:error] = "You Cant Do That, you are not a judge!"
+      redirect_to current_coordinator, notice: "You Cant Do That, you are not a judge"
     end
   end
 end
