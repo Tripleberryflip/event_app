@@ -1,24 +1,15 @@
-<% provide(:title, 'Judge Profile') %>
-<div class="container">
-	<center><p id="notice"><%= notice %></p>
+<center><p id="notice"><%= notice %></p>
 
-	<p>
-	  <b>Name:</b>
-	  <%= @judge.name %>
-	  <br />
-		<b>Email:</b>
-	  <%= @judge.email %>
-	  <br />
-		<b>Event:</b>
-	<%= @judge.event_id %>
-		
-	</p>
+<p>
+  <b>Name:</b>
+  <%= @judge.name %>
+	<b>Email:</b>
+  <%= @judge.email %>
+	<b>Event:</b>
+<%= @judge.event_id %>
 
-		<div class="container">
-			<%= render :partial => 'events/list', :locals => {:judge => @judge } %>
-		</div>
+</p>
 
 
-	<%= link_to 'Edit', edit_judge_path(@judge) %> |
-	<%= link_to 'Back', judges_path %><center>
-</div>
+<%= link_to 'Edit', edit_judge_path(@judge) %> |
+<%= link_to 'Back', judges_path %><center>
