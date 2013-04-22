@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+  
+  before_filter :require_logged_in
+  before_filter :require_event_coordinator, only: [:create, :new, :edit, :destory]
   # GET /events
   # GET /events.json
   def index
@@ -78,6 +81,15 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to events_url }
       format.json { head :no_content }
+    end
+  end
+  
+  private
+  
+  def require_event_coordinator
+    unless coordinator_signed_in?
+      flash[:error] = "You Cant Do That, you are not an event coordinator!"
+      redirect_to current_judge, notice: "You Cant Do That, you are not an event coordinator"
     end
   end
 end
