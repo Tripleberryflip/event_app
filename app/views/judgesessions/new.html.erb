@@ -4,11 +4,9 @@
   <div class="span6 offset3">
     <%= form_for(:judgesession, url: judgesessions_path) do |f| %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, :placeholder => "Name" %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= f.password_field :password, :placeholder => "Password" %>
 
       <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
     <% end %>

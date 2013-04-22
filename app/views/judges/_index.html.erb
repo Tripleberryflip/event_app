@@ -1,6 +1,6 @@
 <div data-role="header">Judges for <%= event.name %></div>
 <% judges = Judge.for_event(event) %>
-<div data-role="collapsible-set" data-theme="c" data-content-theme="d" data-inset="false">
+<div data-role="collapsible-set" data-theme="a" data-content-theme="d" data-inset="true">
   <% judges.each do |judge| %>
     <div data-role="collapsible">
     	<h2><%= judge.name %></h2>

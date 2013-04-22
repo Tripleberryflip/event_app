@@ -14,9 +14,8 @@
 
 	<div class="container">
 		<%= render :partial => 'events/index', :locals => {:event_coordinator => @event_coordinator } %>
-		<%= link_to "Create an event", new_event_coordinator_event_path(@event_coordinator) %> 
+		<%= link_to "Create a new event", new_event_coordinator_event_path(@event_coordinator) %> 
 		<br />
-		<%= link_to "View events", event_coordinator_events_path(@event_coordinator) %>	
 	</div>
 
 	<br />
