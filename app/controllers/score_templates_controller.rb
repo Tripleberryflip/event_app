@@ -1,4 +1,8 @@
 class ScoreTemplatesController < ApplicationController
+  
+  before_filter :require_logged_in
+  before_filter :require_event_coordinator, only: [:create, :new, :edit, :update, :destory]
+  
   # GET /score_templates
   # GET /score_templates.json
   def index
@@ -81,6 +85,15 @@ class ScoreTemplatesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to score_templates_url }
       format.json { head :no_content }
+    end
+  end
+  
+  private
+  
+  def require_event_coordinator
+    unless coordinator_signed_in?
+      flash[:error] = "You Cant Do That, you are not an event coordinator!"
+      redirect_to current_judge, notice: "You Cant Do That, you are not an event coordinator"
     end
   end
 end
