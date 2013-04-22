@@ -65,7 +65,7 @@ class CompetitorsController < ApplicationController
 
     respond_to do |format|
       if @competitor.update_attributes(params[:competitor])
-        format.html { redirect_to @competitor, notice: 'Competitor was successfully updated.' }
+        format.html { redirect_to event_coordinator_event_path(@competitor.event.event_coordinator, @competitor.event), notice: 'Competitor was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

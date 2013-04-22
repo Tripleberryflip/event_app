@@ -70,7 +70,7 @@ class JudgesController < ApplicationController
 
     respond_to do |format|
       if @judge.update_attributes(params[:judge])
-        format.html { redirect_to @judge, notice: 'Judge was successfully updated.' }
+        format.html { redirect_to event_coordinator_event_path(@judge.event.event_coordinator, @judge.event), notice: 'Judge was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
