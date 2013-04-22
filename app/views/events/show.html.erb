@@ -12,10 +12,10 @@
   <%= render :partial => 'competitors/index', :locals => {:event => @event } %></center>
   <%= link_to 'Create and add a new competitor', new_event_coordinator_event_competitor_path(@event.event_coordinator, @event) %>
   <br><br>
-  <center><%= render :partial => 'judges/show', :locals => {:event => @event } %></center>
+  <center><%= render :partial => 'judges/index', :locals => {:event => @event } %></center>
   <%= link_to 'Create and assign a judge', new_event_coordinator_event_judge_path(@event.event_coordinator, @event) %>
   <br><br>
-  <center><%= render :partial => 'score_templates/show', :locals => {:event => @event } %></center>
+  <center><%= render :partial => 'score_templates/index', :locals => {:event => @event } %></center>
   <%= link_to 'Create a score template', new_event_coordinator_event_score_template_path(@event.event_coordinator, @event) %>
   <br><br>
 </p>
