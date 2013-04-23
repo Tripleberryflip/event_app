@@ -23,7 +23,7 @@ Failures:
        SQLite3::SQLException: no such column: questions.score_template_id: SELECT "questions".* FROM "questions"  WHERE "questions"."score_template_id" = 1
      # ./spec/models/score_template_spec.rb:36:in `block (2 levels) in <top (required)>'
 
-Finished in 2.11 seconds
+Finished in 2.09 seconds
 41 examples, 2 failures
 
 Failed examples:
