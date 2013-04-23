@@ -4,7 +4,7 @@
 	    <h1><strong>Welcome to the Event Application</strong></h1>
 	    <h2>This is the home page for the Event Judging Application.</h2>
 		<b>New to the site?</b><br/>
-		<%= link_to "Register to be an event coordinator and get started", signupcoordinator_path %>
+		<a href='event_coordinators/new' data-transition="slidefade">Register to be an event coordinator and get started</a>
 		<br/><br/>
 	    <b> Otherwise sign in with your credentials here: </b><br />
 	    <!--
@@ -19,8 +19,8 @@
 		    <div data-theme="b" aria-disabled="false">
 		    </div> 
 		</div><br /> -->
-	    <a href='coordinatorsessions/new' data-transition="turn">Sign in as event coordinator</a>
+	    <a href='coordinatorsessions/new' data-transition="flip">Sign in as an event coordinator</a>
 	    <br/>
-	    <%= link_to "Sign in as judge", judgesignin_path %>
+	    <a href='judgesessions/new' data-transition="flow">Sign in as a judge</a>
 	</div>
 </center>

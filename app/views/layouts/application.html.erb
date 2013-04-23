@@ -33,23 +33,23 @@
   			<div data-role="navbar">
   				<ul>
   					<li><% if coordinator_signed_in? %>
-                  <%= link_to "Home",	current_coordinator %>
-				<% elsif judge_signed_in? %>
-				<%= link_to "Home",	current_judge %>
+                  <a href="event_coordinators/show" data-transition="pop">Home</a>
+				        <% elsif judge_signed_in? %>
+				          <a href="judges/show" data-transition="slidedown">Home</a>
                 <% else %>
-                  <%= link_to "Home", root_path %>
+                  <a href="navigation_pages/home" data-transition="fade">Home</a>
                 <% end %>
             </li>
   					<li><%= link_to "Help",		help_path %></li>
   					<% if coordinator_signed_in? %>
-  					 <li><%= link_to "Current Event Coordinator", current_coordinator %></li>
-             <li><%= link_to "Sign out Coordinator", coordinatorsignout_path, method: "delete" %></li>
+  					  <li><a href="event_coordinators/show" data-transition="slide">Current Event Coordinator</a></li>
+              <li><%= link_to "Sign out Coordinator", coordinatorsignout_path, method: "delete" %></li>
   					<% elsif judge_signed_in? %>
-  					 <li><%= link_to "Current Judge", current_judge %></li>
-             <li><%= link_to "Sign out Judge", judgesignout_path, method: "delete" %></li>
+  					  <li><a href="judges/show" data-transition="turn">Current Judge</li>
+              <li><%= link_to "Sign out Judge", judgesignout_path, method: "delete" %></li>
   					<% else %>
-  					 <li><%= link_to "Sign in Coordinator", coordinatorsignin_path %></li>
-             <li><%= link_to "Sign in Judge", judgesignin_path %></li>
+  					  <li><%= link_to "Sign in Coordinator", coordinatorsignin_path %></li>
+              <li><%= link_to "Sign in Judge", judgesignin_path %></li>
   					<% end %>
   				</ul>
   		  </div><!-- /navbar -->
