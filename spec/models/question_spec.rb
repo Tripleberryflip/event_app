@@ -29,7 +29,6 @@ describe Question do
 
     it 'should belong to a score template' do
         ScoreTemplate.create!(:question_id => @question.id)
-        @question.score_templates(:force_reload=>:true) != nil
         #SQL Query= questions_score_templates: SELECT "score_templates".* FROM "score_templates" INNER JOIN "questions_score_templates" ON "score_templates"."id" = "questions_score_templates"."score_template_id" WHERE "questions_score_templates"."question_id" = 1
     end
 

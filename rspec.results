@@ -4,29 +4,10 @@
         cookies. This will not be supported in future versions of Rack, and
         future versions will even invalidate your existing user cookies.
 
-        Called from: /Users/josephbudin/.rvm/gems/ruby-1.9.3-p362@rails3tutorial2ndEd/gems/actionpack-3.2.3/lib/action_dispatch/middleware/session/abstract_store.rb:28:in `initialize'.
+        Called from: /usr/local/rvm/gems/ruby-1.9.3-p125@defaults/gems/actionpack-3.2.3/lib/action_dispatch/middleware/session/abstract_store.rb:28:in `initialize'.
 
 Rack::File headers parameter replaces cache_control after Rack 1.5.
-............................F...........F
+.........................................
 
-Failures:
-
-  1) Question should belong to a score template
-     Failure/Error: @question.score_templates(:force_reload=>:true) != nil
-     NameError:
-       uninitialized constant Question::ScoreTemplates
-     # ./spec/models/question_spec.rb:32:in `block (2 levels) in <top (required)>'
-
-  2) ScoreTemplate should have and belong to many questions
-     Failure/Error: @score_template.questions(:force_reload=>:true) != nil
-     ActiveRecord::StatementInvalid:
-       SQLite3::SQLException: no such column: questions.score_template_id: SELECT "questions".* FROM "questions"  WHERE "questions"."score_template_id" = 1
-     # ./spec/models/score_template_spec.rb:36:in `block (2 levels) in <top (required)>'
-
-Finished in 2.11 seconds
-41 examples, 2 failures
-
-Failed examples:
-
-rspec ./spec/models/question_spec.rb:30 # Question should belong to a score template
-rspec ./spec/models/score_template_spec.rb:33 # ScoreTemplate should have and belong to many questions
+Finished in 5.35 seconds
+41 examples, 0 failures
