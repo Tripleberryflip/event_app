@@ -1,6 +1,6 @@
 <div data-role="header">Events coordinated by <%= event_coordinator.name %></div>
 <% events = Event.for_coordinator(event_coordinator) %>
-<div data-role="collapsible-set" data-theme="a" data-content-theme="a" data-inset="true">
+<div data-role="collapsible-set" data-theme="a" data-content-theme="c" data-inset="true">
   <% events.each do |event| %>
   <table width='100%'>
     <td>  

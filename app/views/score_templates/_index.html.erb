@@ -1,6 +1,6 @@
 <div data-role="header">Score Templates for <%= event.name %></div>
 <% templates = ScoreTemplate.for_event(event) %>
-<div data-role="collapsible-set" data-theme="a" data-content-theme="d" data-inset="true">
+<div data-role="collapsible-set" data-theme="a" data-content-theme="c" data-inset="true">
   <% templates.each do |template| %>
     <div data-role="collapsible">
     	<h2><%= template.id %></h2>

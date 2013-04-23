@@ -34,22 +34,22 @@
   				<ul>
   					<li><% if coordinator_signed_in? %>
                   <%= link_to "Home",	current_coordinator %>
-				<% elsif judge_signed_in? %>
-				<%= link_to "Home",	current_judge %>
+				        <% elsif judge_signed_in? %>
+				          <%= link_to "Home",	current_judge %>
                 <% else %>
                   <%= link_to "Home", root_path %>
                 <% end %>
             </li>
   					<li><%= link_to "Help",		help_path %></li>
   					<% if coordinator_signed_in? %>
-  					 <li><%= link_to "Current Event Coordinator", current_coordinator %></li>
-             <li><%= link_to "Sign out Coordinator", coordinatorsignout_path, method: "delete" %></li>
+  					  <li><%= link_to "Current Event Coordinator", current_coordinator %></li>
+              <li><%= link_to "Sign out Coordinator", coordinatorsignout_path, method: "delete" %></li>
   					<% elsif judge_signed_in? %>
-  					 <li><%= link_to "Current Judge", current_judge %></li>
-             <li><%= link_to "Sign out Judge", judgesignout_path, method: "delete" %></li>
+  					  <li><%= link_to "Current Judge", current_judge %></li>
+              <li><%= link_to "Sign out Judge", judgesignout_path, method: "delete" %></li>
   					<% else %>
-  					 <li><%= link_to "Sign in Coordinator", coordinatorsignin_path %></li>
-             <li><%= link_to "Sign in Judge", judgesignin_path %></li>
+  					  <li><%= link_to "Sign in Coordinator", coordinatorsignin_path %></li>
+              <li><%= link_to "Sign in Judge", judgesignin_path %></li>
   					<% end %>
   				</ul>
   		  </div><!-- /navbar -->
