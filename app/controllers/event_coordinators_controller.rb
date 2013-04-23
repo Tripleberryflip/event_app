@@ -1,7 +1,7 @@
 class EventCoordinatorsController < ApplicationController
   
-  before_filter :require_logged_in
-  before_filter :require_event_coordinator, only: [:create, :new, :edit, :update, :destory]
+
+  before_filter :require_event_coordinator, only: [:create, :edit, :update, :destory]
    
   # GET /event_coordinators
   # GET /event_coordinators.json
