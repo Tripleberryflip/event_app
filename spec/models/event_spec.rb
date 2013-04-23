@@ -39,7 +39,7 @@ describe Event do
     end
 
     it 'should have a judge' do
-        Judge.create!(:name => "Judge Judy", email: "user@example.com", password: "111111", password_confirmation: "111111", :event_id => @event.id)
+        Judge.create!(:name => "Judge Judy Test 1", email: "user@example.com", password: "111111", password_confirmation: "111111", :event_id => @event.id)
         @event.judges(:force_reload=>:true) != nil
         # SQL Query= events_judges: SELECT "judges".* FROM "judges" INNER JOIN "events_judges" ON "judges"."id" = "events_judges"."judge_id" WHERE "events_judges"."event_id" = 1
     end

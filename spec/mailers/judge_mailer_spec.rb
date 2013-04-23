@@ -1,5 +1,3 @@
-
-
 class JudgeMailerTest < ActionMailer::TestCase
   def test_newjudge_email
       judge = Judge.create!(:name => "Judge Judy", email: "user@example.com", password: "111111", password_confirmation: "111111")
