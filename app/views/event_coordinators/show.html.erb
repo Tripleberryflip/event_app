@@ -1,25 +1,21 @@
 <% provide(:title, 'Coordinator Profile') %>
 <div class="container">
 	<center><p id="notice"><%= notice %></p>
-	<h1> Welcome to your Event Coordinator profile page!</h1>
-	<br />
+	<h1> Welcome to your Event Coordinator profile page, <%= @event_coordinator.name %>!</h1>
+	<h3>Personal Information:</h3>
 	<p>
-	  <h3>Personal Information:</h3>
 	  <b>Name:</b>
 	  	<%= @event_coordinator.name %>
 	  <br />
 	  <b>Email:</b>
 		<%= @event_coordinator.email %>
+	  <br />
+	  <%= link_to 'Edit your credentials', edit_event_coordinator_path(@event_coordinator) %>
 	</p>
 
 	<div class="container">
 		<%= render :partial => 'events/index', :locals => {:event_coordinator => @event_coordinator } %>
 		<%= link_to "Create a new event", new_event_coordinator_event_path(@event_coordinator) %> 
 		<br />
-	</div>
-
-	<br />
-	<%= link_to 'Edit', edit_event_coordinator_path(@event_coordinator) %> |
-	<%= link_to 'Back', event_coordinators_path %>
-	<br/></center>
+	</div></center>
 </div>
