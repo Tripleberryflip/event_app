@@ -1,10 +1,18 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, 'Competitor page') %>
+	<center><div class="container">
+		<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @competitor.name %>
-</p>
+	<p>
+	  <b>Name:</b>
+	  <%= @competitor.name %>
+	  <br />
+	  <b>Participating at:</b>
+	  <%= @competitor.event.name %>
+	  <br />
+	  <b>Score Sheets:</b>
+	</p>
 
 
-<%= link_to 'Edit', edit_competitor_path(@competitor) %> |
-<%= link_to 'Back', competitors_path %>
+	<%= link_to 'Edit', edit_competitor_path(@competitor) %> |
+	<%= link_to 'Back', competitors_path %>
+</div></center>

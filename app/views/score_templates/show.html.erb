@@ -1,10 +1,15 @@
 <% provide(:title, 'Score Templates') %>
 <center><p id="notice"><%= notice %></p>
+<h1>Score Template for <%= @score_template.event.name %></h1></center>
 
-<ul>
+<ol data-role="listview" data-inset"true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
 	<% @score_template.questions.each do |question| %>
-		<li><%= question.text %></li>
+		<li data-corner="false" data-shadow="false" data-iconshadow="true" d ata-wrapperels="div" data-icon="info" data-iconpos="right" data-theme="c" class="ui-li-has-arrow ui-li ui-first-child"><%= question.text %></li>
+		<tr>
+		    <td><%= link_to 'Edit', edit_question_path(question) %></td> |
+		    <td><%= link_to 'Remove', question, confirm: 'Are you sure?', method: :delete %></td>
+		</tr>
 	<% end %>
-</ul>
-<%= link_to 'Edit', edit_score_template_path(@score_template) %> |
-<%= link_to 'Back', score_templates_path %></center>
+</ol>
+<br /><center>
+<%= link_to 'Edit the questions on this scoresheet', edit_score_template_path(@score_template) %></center>

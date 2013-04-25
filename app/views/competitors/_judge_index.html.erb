@@ -1,0 +1,17 @@
+<div data-role="header">Competitors for <%= event.name %></div>
+<% competitors = Competitor.for_event(event) %>
+<div data-role="collapsible-set" data-theme="a" data-content-theme="c" data-inset="true">
+  <% competitors.each do |competitor| %>
+    <div data-role="collapsible">
+    	<h3><%= competitor.name %></h3>
+        <!--<ul data-role="listview">
+          <li><= render "score_sheets/sheet",
+              :event => event,
+              :competitor => competitor,
+              :judge => judge %><li-->
+      <ul data-role="listview">
+          <li data-icon="info"><%= link_to 'Show and update details for this competitor', event_competitor_path(event, competitor) %></li>
+      </ul>
+    </div>
+  <% end %>
+</div>

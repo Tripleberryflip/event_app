@@ -13,7 +13,7 @@
 
 class ScoreTemplate < ActiveRecord::Base
 
-  attr_accessible :score_sheet_id, :question_id, :event_id
+  attr_accessible :score_sheet_id, :question_id, :event_id, :questions_attributes
 
   scope :for_event, lambda { |e| where("event_id = ?", e.id ) }
 
