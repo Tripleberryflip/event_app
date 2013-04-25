@@ -1,4 +1,5 @@
 require 'spec_helper'
+
 describe "Application Pages" do
  
     describe "Navigation Bar" do

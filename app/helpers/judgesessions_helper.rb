@@ -21,4 +21,8 @@ module JudgesessionsHelper
     self.current_judge = nil
     cookies.delete(:remember_judge)
   end
+  
+  def redirect_back_to_judge
+   redirect_to current_judge  
+  end
 end

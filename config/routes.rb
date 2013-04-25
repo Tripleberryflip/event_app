@@ -12,6 +12,7 @@ EventApp::Application.routes.draw do
   
   match '/judgesignin',  to: 'judgesessions#new'
   match '/judgesignout', to: 'judgesessions#destroy', via: :delete
+  
 
   resources :questions
 
