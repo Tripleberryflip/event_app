@@ -1,0 +1,33 @@
+[33m5cb5e19[m HEAD@{0}: checkout: moving from 5cb5e190bfa9c0a9e512d953ffe91b3b91c8e0b6 to temp-master
+[33m5cb5e19[m HEAD@{1}: checkout: moving from master to ORIG_HEAD
+[33mab0fa54[m HEAD@{2}: checkout: moving from aef7cc58e554ce1e8e3b48f814fd76f9fcb14381 to master
+[33maef7cc5[m HEAD@{3}: checkout: moving from master to origin/master
+[33mab0fa54[m HEAD@{4}: checkout: moving from master to master
+[33mab0fa54[m HEAD@{5}: rebase: updating HEAD
+[33m5cb5e19[m HEAD@{6}: rebase: aborting
+[33maef7cc5[m HEAD@{7}: checkout: moving from master to origin/master
+[33m5cb5e19[m HEAD@{8}: reset: moving to 59e91751a62c09098262c6c4c4fb43fd96666026^
+[33m59e9175[m HEAD@{9}: reset: moving to 112f5c1b35818d26a74a3cfd75f0ab5e92f13b39^
+[33m5668a37[m HEAD@{10}: reset: moving to 5668a3784e52e72d3750bbb7424ae11a3e800bc3
+[33mc850a78[m HEAD@{11}: reset: moving to 76459207ee05fff044f90d120ca581bd3f8772a3^
+[33m5668a37[m HEAD@{12}: reset: moving to de38b9c8c1fe7ce195573d8131963c7745911e90^
+[33mde38b9c[m HEAD@{13}: reset: moving to a1de7af036e8104596868cdd41f459f8514b483b^
+[33ma1de7af[m HEAD@{14}: reset: moving to a1de7af036e8104596868cdd41f459f8514b483b
+[33m44d13ba[m HEAD@{15}: reset: moving to c850a7882e3a4d298dc6a6715ba23f011303f63a^
+[33ma1de7af[m HEAD@{16}: reset: moving to e0dbc3f989bf7e602a66e03e8942979833d3fa49^
+[33me0dbc3f[m HEAD@{17}: checkout: moving from master to master
+[33mc850a78[m HEAD@{18}: checkout: moving from master to master
+[33mbea8b90[m HEAD@{19}: checkout: moving from bea8b902e22267ac13d50d7ae9e1bcfcdb174b63 to master
+[33mbea8b90[m HEAD@{20}: checkout: moving from master to origin
+[33mbea8b90[m HEAD@{21}: checkout: moving from master to master
+[33mbea8b90[m HEAD@{22}: commit (amend): Resolving more merge conflicts
+[33m658c448[m HEAD@{23}: commit (merge): Resolving more merge conflicts
+[33m0a7c355[m HEAD@{24}: checkout: moving from 55174c97d856d914207e3275eb3f4542d10defaa to master
+[33m55174c9[m HEAD@{25}: pull --progress --rebase --prune: View uniformity
+[33mc45cf7a[m HEAD@{26}: checkout: moving from master to c45cf7a918fd9163a56e823d5d0a4aa6bf106571^0
+[33mab0fa54[m HEAD@{27}: pull: Fast-forward
+[33mdf21f48[m HEAD@{28}: reset: moving to 63d6b858051dee394678abb7adb36f046cc74258^
+[33m63d6b85[m HEAD@{29}: merge jpbudi11-master: Fast-forward
+[33m2b7978d[m HEAD@{30}: checkout: moving from jpbudi11-master to master
+[33m397e12b[m HEAD@{31}: checkout: moving from master to jpbudi11-master
+[33m2b7978d[m HEAD@{32}: clone: from https://github.com/Tripleberryflip/event_app.git
