@@ -1,5 +1,5 @@
 class EventCoordinatorsController < ApplicationController
-  
+
   before_filter :require_event_coordinator, only: [:edit, :update, :destory]
    
   # GET /event_coordinators

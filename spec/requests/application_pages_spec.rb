@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "Application Pages" do
+
  
     describe "Navigation Bar" do
  
@@ -21,5 +22,5 @@ describe "Application Pages" do
          	visit 'navigation_pages/home'
          	page.should have_selector('h1', :text => "Welcome to the Event Application")
        	end
-    end
 end
+
