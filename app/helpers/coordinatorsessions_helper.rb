@@ -21,5 +21,9 @@ module CoordinatorsessionsHelper
   self.current_coordinator = nil
   cookies.delete(:remember_coordinator)
   end
+  
+  def redirect_back_to_coordinator
+   redirect_to current_coordinator  
+  end
 
 end
