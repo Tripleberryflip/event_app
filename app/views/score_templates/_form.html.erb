@@ -11,16 +11,18 @@
     </div>
   <% end %>
   
-  <div class="field">
+  <div class="fields">
     <%= f.hidden_field :event_id %>
-
+    
     <%= f.fields_for :questions do |builder| %>
-      <%= builder.text_field :text, :placeholder => "Insert question text here" %>
-      <%= builder.check_box :_destroy %>
-      <%= builder.label :_destroy, "Remove Question" %>
+      <%= render :partial => 'questions/question_fields', :locals => { :f => builder } %>
     <% end %>
-    <%= link_to "Add another question", '#' %>
   </div>
+
+  <div class='fields'>
+    <div><%= link_to_add_fields "Add another question", f, :questions %></div>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
