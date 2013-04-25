@@ -1,5 +1,9 @@
 class CoordinatorsessionsController < ApplicationController
   
+  def index
+    redirect_to current_coordinator
+  end
+  
     def new
     end
 

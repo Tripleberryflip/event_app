@@ -1,4 +1,9 @@
 class JudgesessionsController < ApplicationController
+  
+  def index
+    redirect_to current_judge
+  end
+  
   def new
     end
 
