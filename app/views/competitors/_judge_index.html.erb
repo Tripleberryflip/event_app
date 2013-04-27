@@ -12,7 +12,17 @@
       <ul data-role="listview">
           <li data-icon="info"><%= link_to 'Show and update details for this competitor', event_competitor_path(event, competitor) %></li>
 		<br/>
+		
       </ul>
+
+		<!-- <% score_template = ScoreTemplate.for_event(event) %>
+		
+		<% score_template.questions.each do |question| %>
+		
+		<label> This is the question <%= question.text %></label>
+	    <label for="slider-1">Score:</label>
+	    <input name="score_sheet[evaluation][1]" step="0.1" data-mini="true" id="slider-1" min="0" max="10" value="5" type="range">
+		<% end %> -->
 
 		<label> This is the question 1</label>
 	    <label for="slider-1">Score:</label>
