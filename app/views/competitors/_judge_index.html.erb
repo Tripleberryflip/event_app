@@ -15,14 +15,14 @@
 		
       </ul>
 
-		<!-- <% score_template = ScoreTemplate.for_event(event) %>
+		<% score_template = ScoreTemplate.for_event(event) %>
 		
-		<% score_template.questions.each do |question| %>
+		<% score_template.each do |score_template| %>
 		
-		<label> This is the question <%= question.text %></label>
+		<label> This is the question <%= score_template %></label>
 	    <label for="slider-1">Score:</label>
 	    <input name="score_sheet[evaluation][1]" step="0.1" data-mini="true" id="slider-1" min="0" max="10" value="5" type="range">
-		<% end %> -->
+		<% end %>
 
 		<label> This is the question 1</label>
 	    <label for="slider-1">Score:</label>
