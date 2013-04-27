@@ -24,7 +24,7 @@ class Judge < ActiveRecord::Base
 
   # Association(s)
   has_and_belongs_to_many :events#, :through => :events_judges
-  belongs_to :event, :dependent => :destroy
+  belongs_to :event, :dependent => :delete
 
   has_many :score_sheets
   validates :name, presence: true,

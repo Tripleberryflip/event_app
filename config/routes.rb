@@ -3,6 +3,8 @@ EventApp::Application.routes.draw do
 
   match '/help',    to: 'navigation_pages#help'
   
+  match '/results',  to: 'navigation_pages#results'
+  
   match '/signupcoordinator',  to: 'event_coordinators#new'
   
   match '/signupjudge',  to: 'judges#new'
