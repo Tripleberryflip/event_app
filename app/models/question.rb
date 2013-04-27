@@ -15,7 +15,7 @@ class Question < ActiveRecord::Base
   # Association(s)
   #has_and_belongs_to_many :score_templates#, :through => :questions_score_templates, :dependent => :destroy
   belongs_to :score_templates
-  has_many :scores, :dependency => :destroy
+  has_many :scores, :dependent => :destroy
 end
 
 
