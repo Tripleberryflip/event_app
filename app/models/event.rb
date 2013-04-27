@@ -19,11 +19,11 @@ class Event < ActiveRecord::Base
 
   # Association(s)
   belongs_to :event_coordinator
-  has_one :score_template
+  has_one :score_template, :dependent => :destroy
 
   has_and_belongs_to_many :judges#, :through => :events_judges
   
-  has_many :competitors
+  has_many :competitors, :dependent => :destroy
 end
 
 
