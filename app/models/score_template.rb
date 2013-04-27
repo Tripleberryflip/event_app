@@ -13,7 +13,7 @@
 
 class ScoreTemplate < ActiveRecord::Base
 
-  attr_accessible :score_sheet_id, :question_id, :event_id, :questions_attributes
+  attr_accessible :score_sheet_id, :question_id, :questions_attributes
 
   scope :for_event, lambda { |e| where("event_id = ?", e.id ) }
 
@@ -22,8 +22,6 @@ class ScoreTemplate < ActiveRecord::Base
   has_many :questions, :dependent => :destroy
   accepts_nested_attributes_for :questions, :reject_if => lambda { |a| a[:text].blank? }, :allow_destroy => true
 
-  belongs_to :event, :dependent => :destroy
-
-  has_many :event
+  belongs_to :event
 end
 

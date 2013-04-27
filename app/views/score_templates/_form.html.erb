@@ -12,8 +12,6 @@
   <% end %>
   
   <div class="fields">
-    <%= f.hidden_field :event_id %>
-    
     <%= f.fields_for :questions do |builder| %>
       <%= render :partial => 'questions/question_fields', :locals => { :f => builder } %>
     <% end %>
