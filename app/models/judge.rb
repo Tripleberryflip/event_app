@@ -24,9 +24,9 @@ class Judge < ActiveRecord::Base
 
   # Association(s)
   has_and_belongs_to_many :events#, :through => :events_judges
-  belongs_to :event, :dependent => :delete
+  belongs_to :event
 
-  has_many :score_sheets
+  has_many :score_sheets, :dependent => :destroy
   validates :name, presence: true,
                       uniqueness: { case_sensitive: false }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

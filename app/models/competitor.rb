@@ -17,6 +17,6 @@ class Competitor < ActiveRecord::Base
   scope :for_event, lambda { |e| where("event_id = ?", e.id ) }
 
   # Associations
-  has_many :score_sheets
-  belongs_to :event, :dependent => :delete
+  has_many :score_sheets, :dependent => :destroy
+  belongs_to :event
 end
