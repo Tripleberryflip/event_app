@@ -28,8 +28,7 @@ class ScoreTemplatesController < ApplicationController
   # GET /score_templates/new
   # GET /score_templates/new.json
   def new
-    @event = Event.find(params[:event_id])
-    @score_template = ScoreTemplate.new(:event_id => @event.id)
+    @score_template = ScoreTemplate.new()
 
     @question = @score_template.questions.build
 
