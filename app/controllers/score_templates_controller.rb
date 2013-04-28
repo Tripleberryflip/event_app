@@ -29,7 +29,7 @@ class ScoreTemplatesController < ApplicationController
   # GET /score_templates/new.json
   def new
     @event = Event.find(params[:event_id])
-    @score_template = ScoreTemplate.new(:event_id => @event.id)
+    @score_template  = ScoreTemplate.new()
 
     @question = @score_template.questions.build
 
@@ -47,12 +47,14 @@ class ScoreTemplatesController < ApplicationController
   # POST /score_templates
   # POST /score_templates.json
   def create
-    @score_template = ScoreTemplate.new(params[:score_template])
+    @event = Event.find(params[:event_id])
+    
+    @event.score_template = ScoreTemplate.new(params[:score_template])
 
     respond_to do |format|
-      if @score_template.save
-        format.html { redirect_to @score_template, notice: 'Score template was successfully created.' }
-        format.json { render json: @score_template, status: :created, location: @score_template }
+      if @event.save
+        format.html { redirect_to @event, notice: 'Score template was successfully created.' }
+        format.json { render json: @event, status: :created, location: @event }
       else
         format.html { render action: "new" }
         format.json { render json: @score_template.errors, status: :unprocessable_entity }

@@ -1,13 +1,14 @@
 <div data-role="header">Score Templates for <%= event.name %></div>
-<% templates = ScoreTemplate.for_event(event) %>
-<div data-role="collapsible-set" data-theme="a" data-content-theme="c" data-inset="true">
-  <% templates.each do |template| %>
-    <div data-role="collapsible">
-    	<h2><%= template.id %></h2>
-    	<!--= render "score_sheets/sheet",
-          :event => event,
-          :competitor => competitor,
-          :judge => judge  -->
-    </div>
-  <% end %>
-</div>
+<% unless event.score_template.nil? %>
+	<div data-role="collapsible-set" data-theme="a" data-content-theme="c" data-inset="true">
+	    <div data-role="collapsible">
+	    	<h2>Score Template</h2>
+	    	<ul data-role="listview">
+	    	   	<% event.score_template.questions.each do |question| %>
+		          <li data-icon="info"><%= question.text %></li>
+		      	<% end %>
+		      	<li data-icon="gear"><%= link_to "Edit the questions on this score template", edit_score_template_path(event.score_template) %></li>
+	      	</ul>
+	    </div>
+	</div>
+<% end %>
