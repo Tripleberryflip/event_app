@@ -53,11 +53,11 @@ class ScoreSheetsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to current_judge, notice: 'ScoreSheet was successfully created.' }
-        format.json { render json: current_judge, status: :created, location: @score_sheet }
+        format.html { redirect_to judge_path(current_judge), notice: 'ScoreSheet was successfully created.' }
+        
       else
         format.html { render action: "new" }
-        format.json { render json: current_judge.errors, status: :unprocessable_entity }
+        
       end
     end
   end
