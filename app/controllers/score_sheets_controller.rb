@@ -44,15 +44,20 @@ class ScoreSheetsController < ApplicationController
   # POST /score_sheets
   # POST /score_sheets.json
   def create
-    @score_sheet = ScoreSheet.new(params[:score_sheet])
+    
+    @event = Event.find(params[:event_id])
+    
+    score = ScoreSheet.find_by_event_id_and_judge_id_and_competitor_id(@event.id, params[:score_sheet][:judge_id], params[:score_sheet][:competitor_id])
+    
+    @event.score_sheets.new(params[:score_sheet]) if score.nil?
 
     respond_to do |format|
-      if @score_sheet.save
-        format.html { redirect_to @score_sheet, notice: 'ScoreSheet was successfully created.' }
-        format.json { render json: @score_sheet, status: :created, location: @score_sheet }
+      if @event.save
+        format.html { redirect_to judge_path(current_judge), notice: 'ScoreSheet was successfully created.' }
+        
       else
         format.html { render action: "new" }
-        format.json { render json: @score_sheet.errors, status: :unprocessable_entity }
+        
       end
     end
   end

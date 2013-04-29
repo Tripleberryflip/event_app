@@ -18,7 +18,15 @@ class JudgesController < ApplicationController
   # GET /judges/1.json
   def show
     @judge = Judge.find(params[:id])
-
+    
+    @judge.event.competitors.each do |competitor|
+      
+      score_sheet = ScoreSheet.find_by_judge_id_and_competitor_id(@judge.id, competitor.id)
+      
+      @judge.build_score_sheet_for_competitor(competitor) if score_sheet.nil?
+        
+    end
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @judge }

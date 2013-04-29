@@ -31,6 +31,7 @@ EventApp::Application.routes.draw do
   resources :events do
     resources :score_templates
     resources :competitors
+    resources :score_sheets
   end
 
   resources :event_coordinators do
