@@ -21,7 +21,11 @@ class JudgesController < ApplicationController
     
     if @judge.score_sheet_id.nil?
     
-      @judge.score_sheet = ScoreSheet.build_from_score_template(@judge.event.score_template)
+    @judge.event.competitors.each do |competitor|
+      
+      @judge.score_sheets = ScoreSheet.build_from_score_template(@judge.event.score_template)
+      
+    end
     
     end
     
