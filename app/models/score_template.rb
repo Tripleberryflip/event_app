@@ -15,8 +15,6 @@ class ScoreTemplate < ActiveRecord::Base
 
   attr_accessible :score_sheet_id, :question_id, :questions_attributes
 
-  scope :for_event, lambda { |e| where("event_id = ?", e.id ) }
-
   # Association(s)
   #has_and_belongs_to_many :questions#, :through => :question_score_template
   has_many :questions, :dependent => :destroy
