@@ -19,14 +19,12 @@ class JudgesController < ApplicationController
   def show
     @judge = Judge.find(params[:id])
     
-    if @judge.score_sheet_id.nil?
-    
     @judge.event.competitors.each do |competitor|
       
-      @judge.score_sheets = ScoreSheet.build_from_score_template(@judge.event.score_template)
+      score_sheet = ScoreSheet.find_by_judge_id_and_competitor_id(@judge.id, competitor.id)
       
-    end
-    
+      @judge.build_score_sheet_for_competitor(competitor) if score_sheet.nil?
+        
     end
     
     respond_to do |format|

@@ -28,15 +28,7 @@ class ScoreSheet < ActiveRecord::Base
 	
 	accepts_nested_attributes_for :scores
 	
-	def ScoreSheet.build_from_score_template (score_template)
-	  ss = ScoreSheet.new
-	  score_template.questions.each do |q|
-	    
-	    ss.scores.build(question_id: q.id)
-    end
-    
-    return ss
-  end
+	
   
 end
 

@@ -1,9 +1,8 @@
 <div data-role="header">Competitors for <%= event.name %></div>
-<% competitors = Competitor.for_event(event) %>
 <div data-role="collapsible-set" data-theme="a" data-content-theme="c" data-inset="true">
-	<% competitors.each do |competitor| %>
+	<% @judge.score_sheets.each do |score_sheet| %>
 	<div data-role="collapsible">
-		<h3><%= competitor.name %></h3>
+		<h3><%= score_sheet.competitor.name %></h3>
 		<!--<ul data-role="listview">
 		<li><= render "score_sheets/sheet",
 		:event => event,
@@ -16,12 +15,12 @@
 
 		<% score_template = event.score_template %>
 		
-		<% if @judge.score_sheet.new_record? %>
+		<% if score_sheet.new_record? %>
 
-		<%= form_for([@judge.event, @judge.score_sheet]) do |f| %>
+		<%= form_for([@judge.event, score_sheet]) do |f| %>
 		
 		<%= f.hidden_field :judge_id, value: @judge.id %>
-		<%= f.hidden_field :competitor_id, value: competitor.id %>
+		<%= f.hidden_field :competitor_id, value: score_sheet.competitor.id %>
 		
 			<%= f.fields_for :scores do |builder| %>
 			<label><%= builder.object.question.text %></label>
