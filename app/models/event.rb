@@ -24,6 +24,7 @@ class Event < ActiveRecord::Base
   has_and_belongs_to_many :judges#, :through => :events_judges
   
   has_many :competitors, :dependent => :destroy
+  has_many :score_sheets
 end
 
 

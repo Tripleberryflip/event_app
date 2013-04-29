@@ -17,7 +17,7 @@ class ScoreSheet < ActiveRecord::Base
   		{ event_id: event_id, judge_id: judge_id, competitor_id: competitor_id })
   	}
 
-	attr_accessible :event_id, :judge_id, :competitor_id, :score_template
+	attr_accessible :event_id, :judge_id, :competitor_id, :score_template, :scores_attributes
 
 	# Association(s)
 	has_many :scores, :dependent => :destroy
@@ -25,6 +25,21 @@ class ScoreSheet < ActiveRecord::Base
 	belongs_to :judge
 	belongs_to :competitor
 	belongs_to :score_template
+	
+	accepts_nested_attributes_for :scores
+	
+	def ScoreSheet.build_from_score_template (score_template)
+	  ss = ScoreSheet.new
+	  score_template.questions.each do |q|
+	    
+	    ss.scores.build(question_id: q.id)
+    end
+    
+    return ss
+  end
+  
 end
+
+
 
 

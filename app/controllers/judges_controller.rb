@@ -18,6 +18,14 @@ class JudgesController < ApplicationController
   # GET /judges/1.json
   def show
     @judge = Judge.find(params[:id])
+    
+    if @judge.score_sheet_id.nil?
+    
+      @judge.score_sheet = ScoreSheet.build_from_score_template(@judge.event.score_template)
+    
+    end
+    
+    puts "********************* scores =#{@judge.score_sheet.scores}"
 
     respond_to do |format|
       format.html # show.html.erb

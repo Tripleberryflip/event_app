@@ -1,29 +1,43 @@
 <div data-role="header">Competitors for <%= event.name %></div>
 <% competitors = Competitor.for_event(event) %>
 <div data-role="collapsible-set" data-theme="a" data-content-theme="c" data-inset="true">
-  <% competitors.each do |competitor| %>
-    <div data-role="collapsible">
-    	<h3><%= competitor.name %></h3>
-        <!--<ul data-role="listview">
-          <li><= render "score_sheets/sheet",
-              :event => event,
-              :competitor => competitor,
-              :judge => judge %><li-->
-      <ul data-role="listview">
-          <li data-icon="info"><%= link_to 'Show and update details for this competitor', event_competitor_path(event, competitor) %></li>
-		<br/>
-		
-      </ul>
+	<% competitors.each do |competitor| %>
+	<div data-role="collapsible">
+		<h3><%= competitor.name %></h3>
+		<!--<ul data-role="listview">
+		<li><= render "score_sheets/sheet",
+		:event => event,
+		:competitor => competitor,
+		:judge => judge %><li-->
+		<ul data-role="listview">
+			<br/>
+
+		</ul>
 
 		<% score_template = event.score_template %>
 		
-		<% score_template.questions.each do |question| %>
-		
-		<label><%= question.text %></label>
-	    <label for="slider-1">Score:</label>
-	    <input name="score_sheet[evaluation][1]" step="0.1" data-mini="true" id="slider-1" min="0" max="10" value="5" type="range">
-		<% end %>
+		<% if @judge.score_sheet.new_record? %>
 
-    </div>
-  <% end %>
+		<%= form_for([@judge.event, @judge.score_sheet]) do |f| %>
+		
+		<%= f.hidden_field :judge_id, value: @judge.id %>
+		
+			<%= f.fields_for :scores do |builder| %>
+			<label><%= builder.object.question.text %></label>
+			<label for="slider-1">Score:</label>
+			<%= builder.range_field :value, step:"0.5", data: {mini: true}, min:"0", max:"10"%>
+			
+			<% end %>
+			
+			<div class="actions">
+			    <%= f.submit "Submit" %>
+			  </div>
+		<% end %>
+		<% else %>
+		
+		<label> You Have already submitted this score sheet. </label>
+		
+		<% end %>
+	</div>
+	<% end %>
 </div>
