@@ -21,6 +21,7 @@
 		<%= form_for([@judge.event, @judge.score_sheet]) do |f| %>
 		
 		<%= f.hidden_field :judge_id, value: @judge.id %>
+		<%= f.hidden_field :competitor_id, value: competitor.id %>
 		
 			<%= f.fields_for :scores do |builder| %>
 			<label><%= builder.object.question.text %></label>

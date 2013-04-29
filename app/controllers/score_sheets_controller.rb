@@ -47,7 +47,7 @@ class ScoreSheetsController < ApplicationController
     
     @event = Event.find(params[:event_id])
     
-    score = ScoreSheet.find_by_event_id_and_judge_id(@event.id, params[:score_sheet][:judge_id])
+    score = ScoreSheet.find_by_event_id_and_judge_id_and_competitor_id(@event.id, params[:score_sheet][:judge_id], params[:score_sheet][:competitor_id])
     
     @event.score_sheets.new(params[:score_sheet]) if score.nil?
 

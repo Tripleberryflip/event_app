@@ -25,8 +25,6 @@ class JudgesController < ApplicationController
     
     end
     
-    puts "********************* scores =#{@judge.score_sheet.scores}"
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @judge }
