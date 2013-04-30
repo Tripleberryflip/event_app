@@ -47,17 +47,15 @@ class ScoreSheetsController < ApplicationController
     
     @event = Event.find(params[:event_id])
     
-    score = ScoreSheet.find_by_event_id_and_judge_id_and_competitor_id(@event.id, params[:score_sheet][:judge_id], params[:score_sheet][:competitor_id])
+    score_sheet = ScoreSheet.find_by_judge_id_and_competitor_id(params[:score_sheet][:judge_id], params[:score_sheet][:competitor_id])
     
-    @event.score_sheets.new(params[:score_sheet]) if score.nil?
+    score_sheet = ScoreSheet.new(params[:score_sheet]) if score_sheet.nil?
 
     respond_to do |format|
-      if @event.save
+      if score_sheet.save
         format.html { redirect_to judge_path(current_judge), notice: 'ScoreSheet was successfully created.' }
-        
       else
         format.html { render action: "new" }
-        
       end
     end
   end

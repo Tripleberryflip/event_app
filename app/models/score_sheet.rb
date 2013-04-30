@@ -17,7 +17,7 @@ class ScoreSheet < ActiveRecord::Base
   		{ event_id: event_id, judge_id: judge_id, competitor_id: competitor_id })
   	}
 
-	attr_accessible :event_id, :judge_id, :competitor_id, :score_template, :scores_attributes
+	attr_accessible :judge_id, :competitor_id, :score_template, :scores_attributes
 
 	# Association(s)
 	has_many :scores, :dependent => :destroy
