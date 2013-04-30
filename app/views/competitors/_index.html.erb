@@ -4,11 +4,6 @@
   <% competitors.each do |competitor| %>
     <div data-role="collapsible">
     	<h3><%= competitor.name %></h3>
-        <!--<ul data-role="listview">
-          <li><= render "score_sheets/sheet",
-              :event => event,
-              :competitor => competitor,
-              :judge => judge %><li-->
       <ul data-role="listview">
           <li data-icon="info"><%= link_to 'Show and update details for this competitor', event_coordinator_event_competitor_path(event.event_coordinator, event, competitor) %></li>
           <li data-icon="gear"><%= link_to "Edit this competitor's name", edit_event_coordinator_event_competitor_path(event.event_coordinator, event, competitor) %></li>
