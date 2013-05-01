@@ -14,8 +14,12 @@
 	</p>
 
 	<div class="container">
-		<%= render :partial => 'events/index', :locals => {:event_coordinator => @event_coordinator } %>
-		<%= link_to "Create a new event", new_event_coordinator_event_path(@event_coordinator) %> 
+		<div id="events">
+			<div data-role="header">Events coordinated by <%= @event_coordinator.name %></div>
+			<% events = Event.for_coordinator(@event_coordinator) %>
+			<%= render :partial => 'events/index', :locals => {:events => events } %>
+		</div>
+		<%= link_to "Create a new event", new_event_coordinator_event_path(@event_coordinator), id: "new_link" %> 
 		<br />
 	</div></center>
 </div>
