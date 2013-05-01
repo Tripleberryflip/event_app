@@ -1,43 +1,35 @@
 <div data-role="header">Competitors for <%= event.name %></div>
 <div data-role="collapsible-set" data-theme="a" data-content-theme="c" data-inset="true">
 	<% @judge.score_sheets.each do |score_sheet| %>
-	<div data-role="collapsible">
-		<h3><%= score_sheet.competitor.name %></h3>
-		<!--<ul data-role="listview">
-		<li><= render "score_sheets/sheet",
-		:event => event,
-		:competitor => competitor,
-		:judge => judge %><li-->
-		<ul data-role="listview">
-			<br/>
+		<div data-role="collapsible">
+			<h3><%= score_sheet.competitor.name %></h3>
 
-		</ul>
+			<% score_template = event.score_template %>
+			
+			<% if score_sheet.new_record? %>
 
-		<% score_template = event.score_template %>
-		
-		<% if score_sheet.new_record? %>
+			<%= form_for([@judge.event, score_sheet]) do |f| %>
+			
+				<%= f.hidden_field :judge_id, value: @judge.id %>
+				<%= f.hidden_field :competitor_id, value: score_sheet.competitor.id %>
+			
+				<%= f.fields_for :scores do |builder| %>
+					<label><%= builder.object.question.text %></label>
+					<label for="slider-1"></label>
+					<%= builder.range_field :value, step:"0.5", data: {mini: true}, min:"0", max:"10"%>
+				<% end %>
+				
+				<div class="actions">
+				    <%= f.submit "Submit" %>
+				</div>
 
-		<%= form_for([@judge.event, score_sheet]) do |f| %>
-		
-		<%= f.hidden_field :judge_id, value: @judge.id %>
-		<%= f.hidden_field :competitor_id, value: score_sheet.competitor.id %>
-		
-			<%= f.fields_for :scores do |builder| %>
-			<label><%= builder.object.question.text %></label>
-			<label for="slider-1">Score:</label>
-			<%= builder.range_field :value, step:"0.5", data: {mini: true}, min:"0", max:"10"%>
+			<% end %>
+			<% else %>
+				<ul data-role="listview">
+					<li>You have already submitted this score sheet!</li>
+				</ul>
 			
 			<% end %>
-			
-			<div class="actions">
-			    <%= f.submit "Submit" %>
-			  </div>
-		<% end %>
-		<% else %>
-		
-		<label> You Have already submitted this score sheet. </label>
-		
-		<% end %>
-	</div>
+		</div>
 	<% end %>
 </div>

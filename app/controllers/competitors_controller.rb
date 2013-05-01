@@ -11,6 +11,7 @@ class CompetitorsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @competitors }
+      format.js
     end
   end
 
@@ -34,6 +35,7 @@ class CompetitorsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @competitor }
+      format.js
     end
   end
 
@@ -51,6 +53,7 @@ class CompetitorsController < ApplicationController
       if @competitor.save
         format.html { redirect_to event_coordinator_event_path(@competitor.event.event_coordinator, @competitor.event), notice: 'Competitor was successfully created.' }
         format.json { render json: @competitor, status: :created, location: @competitor }
+        format.js
       else
         format.html { render action: "new" }
         format.json { render json: @competitor.errors, status: :unprocessable_entity }

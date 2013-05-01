@@ -35,10 +35,9 @@ class Judge < ActiveRecord::Base
   validates :password_confirmation, presence: true
 
   def build_score_sheet_for_competitor (competitor)
-    ss = self.score_sheets.build(competitor_id: competitor.id, event_id: self.event.id)
+    ss = self.score_sheets.build(competitor_id: competitor.id)
 
     self.event.score_template.questions.each do |q|
-
       ss.scores.build(question_id: q.id)
     end
 
