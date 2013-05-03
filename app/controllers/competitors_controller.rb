@@ -81,10 +81,11 @@ class CompetitorsController < ApplicationController
   # DELETE /competitors/1.json
   def destroy
     @competitor = Competitor.find(params[:id])
+    event = @competitor.event
     @competitor.destroy
 
     respond_to do |format|
-      format.html { redirect_to competitors_url }
+      format.html { redirect_to event_coordinator_event_path(event.event_coordinator, event) }
       format.json { head :no_content }
     end
   end
@@ -93,8 +94,8 @@ class CompetitorsController < ApplicationController
   
   def require_event_coordinator
     unless coordinator_signed_in?
-      flash[:error] = "You Cant Do That, you are not an event coordinator!"
-      redirect_to current_judge, notice: "You Cant Do That, you are not an event coordinator"
+      flash[:error] = "You can't do that, you are not an event coordinator!"
+      redirect_to current_judge, notice: "You cant do that, you are not an event coordinator!"
     end
   end
 end

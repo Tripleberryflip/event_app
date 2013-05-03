@@ -3,7 +3,7 @@ EventApp::Application.routes.draw do
 
   match '/help',    to: 'navigation_pages#help'
   
-  match '/results',  to: 'navigation_pages#results'
+  match '/results', :controller => 'events', :action => 'results'
   
   match '/signupcoordinator',  to: 'event_coordinators#new'
   
@@ -28,6 +28,9 @@ EventApp::Application.routes.draw do
   resources :judges 
 
   resources :events do
+    member do
+      get 'results'
+    end
     resources :score_templates
     resources :competitors
     resources :score_sheets

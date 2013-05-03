@@ -91,7 +91,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     
     respond_to do |format|
-      format.html { redirect_to event_results_path(@event) }
+      format.html #{ redirect_to event_results_path(@event) }
     end
   end
   
@@ -99,8 +99,8 @@ class EventsController < ApplicationController
   
   def require_event_coordinator
     unless coordinator_signed_in?
-      flash[:error] = "You Cant Do That, you are not an event coordinator!"
-      redirect_to current_judge, notice: "You Cant Do That, you are not an event coordinator"
+      flash[:error] = "You can't do that, you are not an event coordinator!"
+      redirect_to current_judge, notice: "You can't do that, you are not an event coordinator!"
     end
   end
 end

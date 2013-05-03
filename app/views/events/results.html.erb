@@ -1,0 +1,35 @@
+<% provide(:title, 'Results') %>
+<center><h1><%= @event.name %> Results</h1>
+<div data-role="header">View results for <%= @event.name %></div><br>
+<% competitors = Competitor.for_event(@event) %>
+<div id="results_table">
+	<table width='100%' data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive table-stroke ui-table ui-table-reflow">
+	  	<thead>
+	        <tr>
+	          <th data-priority="persist"><b>Competitor Name</b></th>
+	          <th></th>
+	          <th></th>
+	          <th></th>
+	          <th data-priority="persist"><b>Total Score</b></th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        
+	    <% competitors.each do |competitor| %>
+		    <% result = 0 %>
+		    <% competitor.score_sheets.each do |scoresheet| %>
+				<% scoresheet.scores.each do |score| %>
+					<% result += score.value %>
+				<% end %>
+			<% end %>
+		  	<tr>
+	          	<th><b class="ui-table-cell-label">Competitor Name</b><%= competitor.name %></th>
+	          	<th></th>
+	          	<th></th>
+	          	<th></th>
+	          	<td><b class="ui-table-cell-label">Total Score</b><%= result %></td>
+	        </tr>
+	    <% end %>
+	    </tbody>
+	</table>
+</div><center>

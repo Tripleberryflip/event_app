@@ -92,8 +92,8 @@ class ScoreSheetsController < ApplicationController
   
   def require_judge
     unless judge_signed_in?
-      flash[:error] = "You Cant Do That, you are not a judge!"
-      redirect_to current_coordinator, notice: "You Cant Do That, you are not a judge"
+      flash[:error] = "You can't do that, you are not a judge!"
+      redirect_to current_coordinator, notice: "You can't do that, you are not a judge"
     end
   end
 end

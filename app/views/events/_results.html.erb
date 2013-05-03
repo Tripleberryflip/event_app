@@ -1,1 +1,38 @@
-<div data-role="header">Results for event <% event.name %></div>
+<div data-role="header">View results for <%= event.name %></div>
+<% competitors = Competitor.for_event(event) %>
+<div data-role="collapsible-set" data-mini="true" data-theme="a" data-content-theme="c" data-inset="true">
+	<div data-role="collapsible">
+		<h2>View results for <%= event.name %></h2>
+		<p>
+		  	<table width='100%' data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive table-stroke ui-table ui-table-reflow">
+		      	<thead>
+			        <tr>
+			          <th data-priority="persist">Competitor</th>
+			          <th></th>
+			          <th></th>
+			          <th></th>
+			          <th data-priority="persist">Total Score</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        
+			    <% @event.competitors.each do |competitor| %>
+				    <% result = 0 %>
+				    <% competitor.score_sheets.each do |scoresheet| %>
+						<% scoresheet.scores.each do |score| %>
+							<% result += score.value %>
+						<% end %>
+					<% end %>
+				  	<tr>
+			          	<th><b class="ui-table-cell-label">Competitor</b><%= competitor.name %></th>
+			          	<th></th>
+			          	<th></th>
+			          	<th></th>
+			          	<td><b class="ui-table-cell-label">Total Score</b><%= result %></td>
+			        </tr>
+			    <% end %>
+			    </tbody>
+			</table>
+		</p>
+	</div>
+</div>
