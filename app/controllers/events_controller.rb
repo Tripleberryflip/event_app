@@ -91,7 +91,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     
     respond_to do |format|
-      format.html { redirect_to event_results_path(@event) }
+      format.html #{ redirect_to event_results_path(@event) }
     end
   end
   

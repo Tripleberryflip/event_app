@@ -18,26 +18,14 @@
   <%= link_to 'Create and assign a judge', new_event_coordinator_event_judge_path(@event.event_coordinator, @event) %>
   <br><br>
   <center><%= render :partial => 'score_templates/index', :locals => {:event => @event } %></center>
-  <%= link_to 'Create a score template', new_event_coordinator_event_score_template_path(@event.event_coordinator, @event) %>
+  <% if @event.score_template.nil? %> 
+    <%= link_to 'Create a score template', new_event_coordinator_event_score_template_path(@event.event_coordinator, @event) %>
+  <% end %>
   <br><br>
 </p>
 
-	<br/>
-	<center>
-		<b>Receive the results to this event after all of the Judge's Score Sheets are Submitted. </b> <br/>
-		
-		<% @event.competitors.each do |competitor| %>
-			<br> Competitor: <%= competitor.name %></br>
-			<% result = 0 %>
-			<% competitor.score_sheets.each do |scoresheet| %>
-				<% scoresheet.scores.each do |score| %>
-					<% result += score.value %>
-				<% end %>
-			<% end %>
-			<br> Score: <%= result %> </br>
-		<% end %>
-	</center>
-	<br/>
+<%= link_to 'Check event results', results_event_path(@event) %>
+<a href="results" data-role="button" params[:event => event]>Check event results</a>
 
 <center><%= link_to 'Edit', edit_event_coordinator_event_path(@event) %> |
 <%= link_to 'Back', event_coordinator_events_path(@event.event_coordinator, @event) %></center>

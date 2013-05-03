@@ -19,6 +19,8 @@ class ScoreSheet < ActiveRecord::Base
 
 	attr_accessible :judge_id, :competitor_id, :score_template, :scores_attributes
 
+	scope :for_judge, lambda { |j| where("judge_id = ?", j.id ) }
+
 	# Association(s)
 	has_many :scores, :dependent => :destroy
 	belongs_to :event
@@ -27,9 +29,6 @@ class ScoreSheet < ActiveRecord::Base
 	belongs_to :score_template
 	
 	accepts_nested_attributes_for :scores
-	
-	
-  
 end
 
 

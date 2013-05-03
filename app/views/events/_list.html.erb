@@ -2,9 +2,6 @@
 <div data-role="collapsible-set" data-theme="a" data-content-theme="c" data-inset="true">
   <div data-role="collapsible">
     <h2><%= judge.event.name %></h2>
-      <!--= render "score_sheets/sheet",
-          :event => event,
-          :competitor => competitor  -->
     <ul data-role="listview">
       <li data-icon="info"><%= link_to "View competitors for this event", event_coordinator_event_competitors_path(judge.event.event_coordinator, judge.event) %></li>
     </ul>
