@@ -21,11 +21,11 @@
   <% if @event.score_template.nil? %> 
     <%= link_to 'Create a score template', new_event_coordinator_event_score_template_path(@event.event_coordinator, @event) %>
   <% end %>
-  <br><br>
+  <br>
 </p>
+<center><% if @event.score_sheet.nil? %>
+  <%= link_to 'Check event results', results_event_path(@event) %>
+<% end %>
 
-<%= link_to 'Check event results', results_event_path(@event) %>
-<a href="results" data-role="button" params[:event => event]>Check event results</a>
-
-<center><%= link_to 'Edit', edit_event_coordinator_event_path(@event) %> |
+<%= link_to 'Edit', edit_event_coordinator_event_path(@event) %> |
 <%= link_to 'Back', event_coordinator_events_path(@event.event_coordinator, @event) %></center>
