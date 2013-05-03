@@ -16,7 +16,7 @@
 				<%= f.fields_for :scores do |builder| %>
 					<label><%= builder.object.question.text %></label>
 					<label for="slider-1"></label>
-					<%= builder.range_field :value, step:"0.5", data: {mini: true}, min:"0", max:"10"%>
+					<%= builder.range_field :value, step:"1", data: {mini: true}, min:"0", max:"10"%>
 				<% end %>
 				
 				<div class="actions">
