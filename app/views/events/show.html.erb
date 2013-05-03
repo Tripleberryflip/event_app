@@ -23,9 +23,10 @@
   <% end %>
   <br>
 </p>
-<center><% if @event.score_sheet.nil? %>
-  <%= link_to 'Check event results', results_event_path(@event) %>
-<% end %>
+
+<center><%= link_to 'Check event results', results_event_path(@event) %>
+
+<br><br>
 
 <%= link_to 'Edit', edit_event_coordinator_event_path(@event) %> |
 <%= link_to 'Back', event_coordinator_events_path(@event.event_coordinator, @event) %></center>
