@@ -2,5 +2,12 @@
 
     <h1>Results for the event</h1>
     <p>
-      This is the results page for the Event Judging Application.
+      	<% @event.competitors.each do |competitor| %>
+			<br> Competitor: <%= competitor.name %></br>
+			<% competitor.score_sheets.each do |scoresheet| %>
+				<% scoresheet.scores.each do |score| %>
+					<br> Score: <%= score.value %></br>
+				<% end %>
+			<% end %>
+		<% end %>
     </p>

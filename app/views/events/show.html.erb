@@ -25,7 +25,17 @@
 	<br/>
 	<center>
 		<b>Receive the results to this event after all of the Judge's Score Sheets are Submitted. </b> <br/>
-		<%= link_to "Results",		results_path %>
+		
+		<% @event.competitors.each do |competitor| %>
+			<br> Competitor: <%= competitor.name %></br>
+			<% result = 0 %>
+			<% competitor.score_sheets.each do |scoresheet| %>
+				<% scoresheet.scores.each do |score| %>
+					<% result += score.value %>
+				<% end %>
+			<% end %>
+			<br> Score: <%= result %> </br>
+		<% end %>
 	</center>
 	<br/>
 
