@@ -10,6 +10,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @events }
+      format.js
     end
   end
 
@@ -32,6 +33,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @event }
+      format.js
     end
   end
 
@@ -49,6 +51,7 @@ class EventsController < ApplicationController
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render json: @event, status: :created, location: @event }
+        format.js
       else
         format.html { render action: "new" }
         format.json { render json: @event.errors, status: :unprocessable_entity }
